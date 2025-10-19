@@ -1,0 +1,17 @@
+@use "../../styles//global.scss" as *;
+#services{
+    padding: 5rem 0%;
+    .services-title{
+        font-size: 36px;
+        font-weight: 600;
+        color: $main-text-color;
+    }
+}
+
+@media screen and (max-width:576px){
+    #services{
+        .services-title{
+            font-size: 22px !important
+                }
+    }
+}

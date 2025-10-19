@@ -1,0 +1,143 @@
+@use  "../../styles/global.scss" as*;
+
+
+footer {
+  background-color: #fff;
+  height: 100%;
+  padding: 40px 0;
+  min-height: 40vh;
+  z-index: 1;
+  position: relative;
+  overflow: hidden;
+   .vector{
+        position: absolute;
+        width: 500px;
+        height: auto;
+        left: -250px;
+        top: 0;
+        z-index: 1;
+      
+        @media (min-width:576px) and (max-width:768px){
+            left: -30%;
+            // top: -10%;
+        }
+        @media (max-width:575px){
+            left: -50%;
+            width: 400px;
+            // top: -10%;
+        }
+    }
+    .vector-2{
+        width: 350px;
+        position: absolute;
+        right: -150px;
+        top: -100px;
+    }
+    .vector-3{
+        width: 350px;
+        height: auto;
+        position: absolute;
+        bottom: -100px;
+        right: -200px;
+    }
+  .footer {
+    padding: 0 5%;
+    position: relative;
+    z-index:1;
+    .logo-side {
+      padding: 0;
+      z-index: 1;
+      .logo {
+        width: 200px;
+        height: 12 0px;
+        margin-bottom: 20px;
+      }
+      h2 {
+        font-size: 20px;
+        line-height: 160%;
+        width: 80%;
+        @media (max-width:768px){
+            width: 100% ;
+        }
+      }
+      .footer-icons {
+        display: flex;
+        gap: 10px;
+        span {
+            border: 1px solid #8698a365;
+          background-color: #fff;
+          overflow: hidden;
+          border-radius: 10px;
+          width: 40px;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          a {
+            font-size: 22px;
+          }
+        }
+      }
+    }
+   
+    .title-side {
+        color: $main-text-color;
+        margin-top: 30px;
+       h5 {
+          font-weight: 600;
+          font-size: 18px;
+          border-bottom: 2px solid #744394ba;
+          padding-bottom: 15px;
+          margin-right: 40px;
+        }
+      .links {
+        text-align: start;
+        padding: 0;
+        ul {
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          li {
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+            gap: 10px;
+          }
+        }
+      }
+      .links-2 {
+        text-align: start;
+        padding: 0;
+        ul {
+          padding: 0;
+        }
+        li {
+            p{
+                margin:0;
+            }
+          .icons-side {
+            padding: 0;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-weight: 600;
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .footer {
+    // padding:0 15% !important;
+    // border:  1px solid red;
+    .logo {
+      width: 150px !important;
+      height: 80px !important;
+      padding: 0 !important;
+    }
+  }
+}

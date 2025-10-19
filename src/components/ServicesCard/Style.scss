@@ -1,0 +1,47 @@
+@use "../../styles/global.scss" as *;
+
+
+.services-card{
+    // width: 200px !important;
+    height: 340px;
+    border-radius: 20px;
+    box-shadow:3px 5px 8px 5px  #0F0C3105;
+    border: 2px solid #EFEEF6;
+    background-color: #5D4FFF08;
+    flex-direction: column;
+    justify-content: space-between;
+    gap:35px;
+    padding: 30px;
+    // margin-right: 30px !important;
+    @media screen and (max-width:576px){
+        padding:30px 15px ;
+    }
+    .card-img{
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        padding: 10px;
+        box-shadow: (1px 1px 15px 5px #5D4FFF1F);
+    }
+    .card-title{
+        display: flex;
+        flex-direction: column;
+    }
+    .card-head{
+        font-weight: 600;
+        font-size: 22px;
+    }
+    .card-detail{
+        color: $box-text-color;
+        font-size: 16px;
+        line-height: 150%;
+    }
+    .read-more{
+        border-top: 2px solid #EFEEF6;
+        padding: 20px 0px;
+        display: flex;
+        gap: 20px;
+        color: $primary-color;
+    }
+    
+}

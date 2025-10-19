@@ -1,0 +1,61 @@
+@use "../../styles/global.scss" as *;
+
+#contact-us {
+  background-color: #faf9fc;
+  padding: 4rem 5% 8rem 5%;
+  min-height: 60vh;
+  .contact-us {
+    .content-side {
+      background: #f8f8ff;
+      position: relative;
+      overflow: hidden;
+      .vector {
+        position: absolute;
+        height: auto;
+        left: 0;
+        top: 0;
+        z-index: 0;
+      }
+      .vector2 {
+        position: absolute;
+        right: -50px;
+        bottom: -50px;
+        rotate: 180deg;
+      }
+      .content {
+        position: relative;
+        z-index: 2 !important;
+        padding: 50px;
+        h1 {
+          font-weight: 600;
+        }
+      }
+    }
+    .img-side {
+          height: 50vh;
+        object-fit: cover;
+      img {
+        @media (max-width: 768px) {
+          border-radius: 0 !important;
+        }
+      
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .contact-us {
+    .content {
+      gap: 15px;
+      h1 {
+        font-size: 22px;
+      }
+      p {
+        font-weight: 500;
+      }
+
+      padding: 40px 10px !important;
+    }
+  }
+}

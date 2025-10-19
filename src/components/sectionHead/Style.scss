@@ -1,0 +1,24 @@
+@use "../../styles/global.scss" as *;
+
+.section-head {
+  display: flex;
+  min-width: 120px;
+  max-width: 130px;
+  height: 55px;
+  align-items: center;
+  justify-content: center;
+//   padding: 10px 25px;
+  border-radius: 10px;
+  font-weight: 600;
+  box-shadow:   1px 1px 15px 5px #5d4fff1f;
+ 
+  font-size: 18px;
+  background-color: #fff;
+  span{
+   color: $secondary-color;
+  }
+  @media screen and (max-width:576px){
+    font-size:16px !important;
+  }
+  
+}

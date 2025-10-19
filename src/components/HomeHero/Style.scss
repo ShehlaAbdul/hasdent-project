@@ -1,0 +1,75 @@
+@use "../../styles/global.scss" as *;
+
+#home-hero {
+  background-color: #eaeaec1d;
+  height: 100vh;
+  padding: 1rem 5%;
+
+  .hero-title {
+    font-size: 50px;
+    font-weight: 600;
+    line-height: 160%;
+    color: #181443;
+    font-family: "Inter", sans-serif;
+    .purple {
+      color: $primary-color;
+    }
+    .yellow {
+      color: #ffb800;
+    }
+    
+  }
+  .hero-text {
+    color: $main-text-color;
+    width: 80%;
+    
+  }
+  .home-hero-img {
+    position: relative;
+    height: 90vh;
+    display: flex;
+    .vector {
+      position: absolute;
+      top: 15%;
+      left: -20%;
+      z-index: 1;
+      img {
+        width: 250px;
+        height: auto;
+        object-fit: cover;
+      }
+    }
+    .hero-bg {
+      width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+      object-position: center 60%;
+      border-radius: 20px;
+      z-index: 2;
+    }
+  }
+}
+
+@media screen and (min-width:577px) and (max-width: 1200px) {
+    .hero-title{
+        font-size: 44px !important;
+    }
+    .hero-text{
+        width: 100% !important;
+    }
+    .hero-bg{
+        height: 50vh !important;
+    }
+}
+ @media screen and (max-width: 576px) {
+     .hero-title{
+         font-size: 30px !important;
+     }
+     .hero-text{
+        width: 100% !important;
+     }
+     .hero-bg{
+        height: 30vh !important;
+     }
+     
+    }
