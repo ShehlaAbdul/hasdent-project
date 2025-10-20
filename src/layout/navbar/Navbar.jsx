@@ -25,7 +25,7 @@ export default function Navbar() {
         <div className="collapse navbar-collapse row p-0   " id="navbarNav">
           <ul className="navbar-nav col-12 col-lg-8 justify-content-end ">
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href="/">
                 Ana Səhifə
               </a>
             </li>
@@ -35,17 +35,17 @@ export default function Navbar() {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href="/services">
                 Services
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                Contact
+              <a className="nav-link" href="/partners">
+                Partners
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href="/contact-us">
                 Contact
               </a>
             </li>

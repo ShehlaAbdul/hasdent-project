@@ -1,0 +1,11 @@
+@use "../../styles//global.scss" as *;
+
+.partners{
+    background-color:$gradient-bg ;
+    padding-top: 4rem;
+    padding-bottom: 8rem;
+    @media  (max-width:576px){
+        padding-bottom:4rem
+
+    }
+}

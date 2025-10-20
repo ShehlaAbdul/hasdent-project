@@ -40,40 +40,49 @@ export default function Brends() {
   ];
   return (
     <section id="brands">
-      <div className="brands-container">
-        <Swiper
-          slidesPerView={5}
-          spaceBetween={40}
-          loop={true}
-          speed={4000}
-          autoplay={{
-            delay: 0,
-            disableOnInteraction: false,
-          }}
-          allowTouchMove={false}
-          modules={[Autoplay]}
-          className="brands-slider"
-          breakpoints={{
-            0: {
-              slidesPerView: 2,
-              spaceBetween: 20,
-            },
-            576: {
-              slidesPerView: 3,
-              spaceBetween: 30,
-            },
-            992: {
-              slidesPerView: 5,
-              spaceBetween: 40,
-            },
-          }}
-        >
-          {brands.map((brand, index) => (
-            <SwiperSlide key={index}>
-              <img src={brand.img} alt={`brand-${index}`} />
-            </SwiperSlide>
+      <div className="brands-container ">
+        <div className="brands-list-desktop d-none d-md-block">
+          <Swiper
+            slidesPerView={5}
+            spaceBetween={40}
+            loop={true}
+            speed={4000}
+            autoplay={{
+              delay: 0,
+              disableOnInteraction: false,
+            }}
+            allowTouchMove={false}
+            modules={[Autoplay]}
+            className="brands-slider"
+            breakpoints={{
+              0: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              576: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+              },
+              992: {
+                slidesPerView: 5,
+                spaceBetween: 40,
+              },
+            }}
+          >
+            {brands.map((brand, index) => (
+              <SwiperSlide key={index}>
+                <img src={brand.img} alt={`brand-${index}`} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+        <div className="brands-list-mobile d-block d-md-none">
+          {brands.map((brand) => (
+            <div className="brand-item" key={brand.id}>
+              <img src={brand.img} alt={`brand-${brand.id}`} className="" />
+            </div>
           ))}
-        </Swiper>
+        </div>
       </div>
     </section>
   );

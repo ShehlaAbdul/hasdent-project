@@ -1,0 +1,18 @@
+@use '../../styles/global.scss' as *;
+
+#services-cards{
+    background-color: $gradient-bg;
+    .services-cards {
+        padding: 5rem 5%;
+        gap: 30px !important;
+        .services-card{
+            height: auto;
+            background-color: #F8F8FF;
+            @media (max-width:576px){
+                p{
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,26 @@
+@use "../../styles/global.scss" as *;
+
+#contact{
+    .contact{
+        padding: 5rem 5%;
+        min-height: 60vh;
+        bottom: 2px solid red !important;
+        h1{
+            font-size: 32px;
+            font-weight: 600;
+            padding-bottom: 30px;
+        }
+        h5{
+            font-weight: 600;
+        }
+        .map-side{
+            padding: 20px 30px;
+            display: flex;
+            justify-content: center;
+            .map{
+                width: 100%;
+             background-color: #8080802c;
+       }
+        }
+    }
+}

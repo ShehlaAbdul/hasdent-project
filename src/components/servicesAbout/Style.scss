@@ -1,0 +1,53 @@
+@use "../../styles/global.scss" as *;
+#services-about{
+    min-height: 70vh;
+    background-color: $gradient-bg;
+    .services-about{
+        padding: 5rem 5%;
+        height: 100%;
+        display: flex;
+        // gap: 40px;
+        .img-side{
+            min-height: 35vh;
+            height: auto;
+            img{
+                width: 95%;  
+                box-shadow: 2px 10px 20px #1814432B,2px 4px 10px #0000000A;
+                height: 100%;
+                object-fit: cover;
+            }
+            @media (max-width:991px){
+                padding-bottom: 50px;
+                img{
+                    border-radius: 20px  !important;
+                    width: 100%;
+                    
+                }
+            }
+        }
+        .title-side{
+            padding: 0 10px;
+            h1{
+                font-size: 32px;
+                font-weight: 600;
+            }
+            p{
+                line-height: 150%;
+            }
+        }
+    }
+}
+@media (max-width:576px){
+    .services-about{
+        padding: 2rem 5% !important;
+        .title-side{
+            padding: 0 !important;
+            h1{
+                font-size: 22px !important;
+            }
+            p{
+                font-size: 14px;
+            }
+        }
+    }
+}
