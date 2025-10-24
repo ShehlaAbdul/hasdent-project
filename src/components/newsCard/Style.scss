@@ -1,0 +1,15 @@
+.news-card {
+  background-color: #fff;
+  box-shadow: #0000003d 0px 3px 8px;
+  border-radius: 10px;
+  height: 360px;
+  .img-side{
+    width: 100%;
+    box-shadow: #0000003d 0px 3px 8px;
+    overflow: hidden;
+    img{
+        object-fit: cover;
+        object-position: center center;
+    }
+  }
+}

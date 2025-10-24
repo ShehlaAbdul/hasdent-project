@@ -49,7 +49,7 @@ export default function ServicesPage() {
         ];
   return (
     <>
-      <HeroSection />
+      <HeroSection page={"Xidmətlər"}/>
       <ServicesAbout />
       <section id='services-cards'>
         <div className="services-cards container-fluid d-flex flex-column gap-5">

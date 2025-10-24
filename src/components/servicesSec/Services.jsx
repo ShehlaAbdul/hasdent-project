@@ -20,7 +20,7 @@ export default function Services() {
         <SectionHead title="Xidmətlər" />
         <h1 className="services-title">Geniş Çeşid və Mükəmməl Xidmət</h1>
 
-        <div className="services-slider slider-container">
+        <div className="services-slider slider-container border">
           <ServicesCard />
         </div>
       </div>

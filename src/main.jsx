@@ -5,7 +5,6 @@ import './styles/reset.scss';
 import './styles/global.scss';
 
 
-
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />

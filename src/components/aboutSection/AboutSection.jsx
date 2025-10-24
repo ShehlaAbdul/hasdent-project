@@ -1,7 +1,6 @@
 import React from 'react';
 import './Style.scss';
 import AboutLayout from "../../assets/images/AboutLayout.webp";
-import AboutLayout2 from "../../assets/images/AboutLayout2.webp";
 import Vector from "../../assets/images/Vector2.webp";
 import SectionHead from '../sectionHead/SectionHead';
 import ReadMore from '../readMore/ReadMore';
@@ -10,18 +9,15 @@ export default function AboutSection() {
   return (
     <section id="about-sec">
       <div className="about-sec container-fluid  p-0 row m-0">
-        <div className="layout-side col-12 col-lg-6 ">
-            <div className="layout ">
-              <img src={AboutLayout} alt="" className='layout1'/>
-            <div className="layout2 ">
-              <img src={AboutLayout2} alt="" />
-            </div>
-            </div>
-            <div className="vector">
-              <img src={Vector} alt="" />
-            </div>
+        <div className="layout-side col-12 col-lg-6 p-0 ">
+          <div className="layout ">
+            <img src={AboutLayout} alt="" className="layout1" />
           </div>
-        <div className="title-side col-12 col-lg-5 d-flex flex-column justify-content-end gap-3 pb-5">
+          <div className="vector">
+            <img src={Vector} alt="" />
+          </div>
+        </div>
+        <div className="title-side col-12 col-lg-5 d-flex flex-column justify-content-center gap-3 pb-md-5">
           <SectionHead title={"Haqqımızda"} />
           <h1 className="about-title">Uğurun əsasında təcrübə və keyfiyyət</h1>
           <p>
@@ -34,7 +30,7 @@ export default function AboutSection() {
             ehtiyaclarına uyğun olaraq məhsul çeşidini artırmaq və xidmət
             keyfiyyətini yüksəltmək öhdəliyimizdir.
           </p>
-          <ReadMore title={"Məhsullara bax "}/>
+          <ReadMore title={"Məhsullara bax "} />
         </div>
       </div>
     </section>

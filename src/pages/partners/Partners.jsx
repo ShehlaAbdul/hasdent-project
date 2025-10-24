@@ -6,7 +6,7 @@ import HeroSection from '../../components/HeroSection/HeroSection';
 export default function Partners() {
   return (
     <>
-      <HeroSection />
+      <HeroSection page={"Partnyorlar"}/>
       <div className='partners'>
         <Brends />
       </div>

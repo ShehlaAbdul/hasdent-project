@@ -79,27 +79,26 @@ function ServicesCard() {
      ],
    };
   return (
-    <div >
-
-      <Slider {...settings} className='row'>
-      {servicescard.map((item) => (
-        <div className="services-card d-flex" key={item.id}>
-          <div className="card-img">
-            <img src={item.img} alt="" />
+    <div>
+      <Slider {...settings} className="row row-cols">
+        {servicescard.map((item) => (
+          <div className=''>
+            <div className="services-card d-flex" key={item.id}>
+              <div className="card-img">
+                <img src={item.img} alt="" />
+              </div>
+              <div className="card-title">
+                <h6 className="card-head">{item.title}</h6>
+                <div className="card-detail">{item.detail}</div>
+              </div>
+              {/* <hr /> */}
+              <div className="read-more">
+                <span>Daha Ətraflı</span>
+                <i> v</i>
+              </div>
+            </div>
           </div>
-          <div className="card-title">
-            <h6 className="card-head">{item.title}</h6>
-            <div className="card-detail">{item.detail}</div>
-          </div>
-          {/* <hr /> */}
-          <div className="read-more">
-            <span>Daha Ətraflı</span>
-            <i> v</i>
-          </div>
-        </div>
-      ))}
-
-
+        ))}
       </Slider>
     </div>
   );

@@ -1,0 +1,36 @@
+@use "../../styles//global.scss" as *;
+
+#products-sec {
+  padding: 5rem 5%;
+}
+.products-sec {
+  border: 2px solid red;
+  .bestseller-card {
+    border: 1px solid #6d9bac66;
+    padding: 30px 10px;
+    max-width: 300px;
+    height: 370px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #fff;
+    border-radius: 20px;
+    h5 {
+      font-size: 18px;
+    }
+    img {
+      height: 60%;
+    }
+  }
+  .categories{
+    .categories-list{
+        input{
+            width: 20px;
+            font-weight: 600;
+            }
+    }
+  }
+  input {
+    border: none;
+  }
+}

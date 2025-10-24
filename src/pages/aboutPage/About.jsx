@@ -6,8 +6,8 @@ import WhyAreWe from '../../components/whyAreWe/WhyAreWe.jsx';
 export default function About() {
   return (
     <div>
-      <HeroSection />
-      {/* <AboutSection/> */}
+      <HeroSection page={"Haqqımızda"} />
+      <AboutSection/>
       {/* <AboutSection /> */}
       <WhyAreWe/>
     </div>

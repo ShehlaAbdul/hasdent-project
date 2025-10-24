@@ -7,8 +7,8 @@ import ReadMore from '../readMore/ReadMore';
 export default function WhyAreWe() {
   return (
     <section id="why-are-we">
-      <div className="why-are-we container-fluid p-0 row">
-        <div className=" content-side col-12 col-lg-6 d-flex flex-column gap-3 justify-content-center px-3">
+      <div className="why-are-we container-fluid p-0 row ">
+        <div className=" content-side col-12 col-lg-5 d-flex flex-column gap-3 justify-content-center px-3 ">
           <SectionHead title={"Niyə biz?"} />
           <h1>Daim inkişaf edən bir yol</h1>
           <p>
@@ -29,7 +29,7 @@ export default function WhyAreWe() {
           </p>
           <ReadMore title={"Məhsullara Bax"}/>
         </div>
-        <div className="img-side col-12 col-lg-6 ">
+        <div className="img-side col-12 col-lg-7 ">
           <img src={WhyAreWeLayout} alt="" className='rounded-5 '/>
         </div>
       </div>
