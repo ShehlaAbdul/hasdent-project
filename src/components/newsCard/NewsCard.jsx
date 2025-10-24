@@ -9,7 +9,7 @@ export default function NewsCard({id, img, date, title, desc }) {
     <div>
       <Link
         to={`/news/${id}`}
-        className="news-card d-flex flex-column gap-4  p-3 "
+        className="news-card d-flex flex-column gap-4  px-2 py-3 "
       >
         <div className="img-side rounded rounded-3 ">
           <img src={img} alt="" />

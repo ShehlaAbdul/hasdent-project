@@ -76,46 +76,10 @@ export default function BestSeller() {
           </div>
         </div>
 
-        {/* <Swiper
-          // modules={[Pagination]}
-          loop={true}
-          speed={10000}
-          autoplay={{
-            delay: 0,
-            disableOnInteraction: false,
-          }}
-          allowTouchMove={false}
-          breakpoints={{
-            0: { slidesPerView: 1, spaceBetween: 20 },
-            576: { slidesPerView: 2, spaceBetween: 2 },
-            992: { slidesPerView: 4, spaceBetween: 40 },
-          }}
-          navigation={true}
-          pagination={true}
-          mousewheel={true}
-          keyboard={true}
-          modules={[Navigation, Pagination, Mousewheel, Keyboard]}
-          className="brands-slider"
-        >
-          {products.map((product) => (
-            <SwiperSlide key={product.id}>
-              <div className="bestseller-card">
-                <img src={product.img} alt={`product-${product.id}`} />
-                <div className="content-side">
-                  <h5>{product.title}</h5>
-                  <p>{product.desc}</p>
-                </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper> */}
-        <Link to={"/products-page"} className="d-block d-md-none">
-          <ReadMore title={"Hamısına bax "} />
-        </Link>
         <div className="slider-container">
           <Slider {...settings}>
             {products.map((product) => (
-              <div className='p-2'>
+              <div className="p-2">
                 <div key={product.id} className="bestseller-card">
                   <img src={product.img} alt={product.title} />
                   <div className="content-side">
@@ -127,6 +91,9 @@ export default function BestSeller() {
             ))}
           </Slider>
         </div>
+        <Link to={"/products"} className="d-block d-md-none pt-5">
+          <ReadMore title={"Hamısına bax "} />
+        </Link>
       </div>
     </section>
   );

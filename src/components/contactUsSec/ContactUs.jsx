@@ -3,6 +3,7 @@ import "./Style.scss";
 import ContactBg from "../../assets/images/HomeContact.webp";
 import Vector from "../../assets/images/Vector3.webp";
 import ReadMore from "../readMore/ReadMore";
+import { Link } from "react-router-dom";
 
 export default function ContactUs() {
   return (
@@ -21,7 +22,9 @@ export default function ContactUs() {
               Məhsullarımız və xidmətlərimiz haqqında məlumat almaq üçün bizimlə
               əlaqə qurun.
             </p>
-            <ReadMore title={"Əlaqə"} />
+            <Link to={"contact-us"}>
+              <ReadMore title={"Əlaqə"} />
+            </Link>
           </div>
         </div>
         <div className="img-side col-12 col-md-6 m-0 ">

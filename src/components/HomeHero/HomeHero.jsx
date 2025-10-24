@@ -19,7 +19,7 @@ export default function HomeHero() {
             çeşidimizlə, klinikalar və mütəxəssislər üçün etibarlı tərəfdaş
             olmağa davam edirik.
           </p>
-          <ReadMore title={"read more"} />
+          <ReadMore title={"Məhsullara Bax"} />
         </div>
         <div className="col-12 col-md-6 home-hero-img m-0 p-0 ">
         <div className="vector d-none  d-xl-block ">
