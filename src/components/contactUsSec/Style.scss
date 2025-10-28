@@ -34,6 +34,7 @@
     .img-side {
           height: 50vh;
         object-fit: cover;
+        
       img {
         @media (max-width: 768px) {
           border-radius: 0 !important;
@@ -54,8 +55,10 @@
       p {
         font-weight: 500;
       }
-
       padding: 40px 10px !important;
+    }
+    .img-side{
+      height: 40vh !important;
     }
   }
 }

@@ -2,13 +2,14 @@
 
 #home-hero {
   background-color: #eaeaec1d;
-  height: 100vh;
   padding: 1rem 5%;
-
+  overflow: hidden;
+  // border: 1px solid black;
+  max-height: 100vh;
   .hero-title {
-    font-size: 50px;
+    font-size: 48px;
     font-weight: 600;
-    line-height: 160%;
+    line-height: 130%;
     color: #181443;
     font-family: "Inter", sans-serif;
     .purple {
@@ -17,17 +18,18 @@
     .yellow {
       color: #ffb800;
     }
-    
+
   }
   .hero-text {
     color: $main-text-color;
     width: 80%;
-    
+
   }
   .home-hero-img {
     position: relative;
-    height: 90vh;
+    max-height: 90vh;  
     display: flex;
+    overflow: hidden;
     .vector {
       position: absolute;
       top: 15%;
@@ -39,14 +41,16 @@
         object-fit: cover;
       }
     }
-    .hero-bg {
+    .hero-bg{
       width: 100%;
-      max-height: 100%;
-      object-fit: cover;
-      object-position: center 60%;
+      height: 100%;
       border-radius: 20px;
+      overflow: hidden;
+      object-fit: cover;
+      object-position: center 50%;
       z-index: 2;
     }
+ 
   }
 }
 
@@ -58,18 +62,72 @@
         width: 100% !important;
     }
     .hero-bg{
-        height: 50vh !important;
+      height: 90% !important;
+      // margin-bottom: 100px !important;
     }
+   
+
 }
  @media screen and (max-width: 576px) {
      .hero-title{
-         font-size: 30px !important;
+         font-size: 32px !important;
+         line-height: 130% !important;
      }
      .hero-text{
         width: 100% !important;
      }
      .hero-bg{
-        height: 30vh !important;
+      height: 35vh !important;
+      
      }
-     
+
     }
+
+// #home-hero {
+//   border: 2px solid red;
+//   padding: 1rem 5%;
+//   height: 90vh;
+//   .hero-title {
+//     font-size: 48px;
+//     font-weight: 600;
+//     line-height: 130%;
+//     color: #181443;
+//     font-family: "Inter", sans-serif;
+//     .purple {
+//       color: $primary-color;
+//     }
+//     .yellow {
+//       color: #ffb800;
+//     }
+//   }
+//   .hero-text {
+//     color: $main-text-color;
+//     width: 80%;
+//   }
+
+//   .home-hero-img {
+//     border: 2px solid blue;
+//     height: 100%;
+//     position: relative;
+
+//     .vector {
+//       position: absolute;
+//       top: 15%;
+//       left: -20%;
+//       z-index: -1;
+//       img {
+//         width: 250px;
+//         height: auto;
+//         object-fit: cover;
+//       }
+//     }
+//     .hero-bg {
+//       width: 100%;
+//       max-height: 100%;
+//       object-fit: cover;
+//       border-radius: 20px;
+//       z-index: 2;
+//       // margin-bottom: 20px;
+//     }
+//   }
+// }

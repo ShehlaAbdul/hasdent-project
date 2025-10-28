@@ -1,67 +1,71 @@
-import React from 'react';
+import React from "react";
 import "./Style.scss";
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from "swiper/react";
 import { Link } from "react-router-dom";
-import { Autoplay, Keyboard, Mousewheel, Navigation, Pagination } from "swiper/modules"; 
+import {
+  Autoplay,
+  Keyboard,
+  Mousewheel,
+  Navigation,
+  Pagination,
+} from "swiper/modules";
 // import { IoIosArrowForward } from "react-icons/io";
 
 import Card1 from "../../assets/images/BestSellerCard.webp";
 import "swiper/css";
 import "swiper/css/autoplay";
-import SectionHead from '../sectionHead/SectionHead';
-import ReadMore from '../readMore/ReadMore';
-import Slider from 'react-slick';
-
-
+import SectionHead from "../sectionHead/SectionHead";
+import ReadMore from "../readMore/ReadMore";
+import Slider from "react-slick";
 
 export default function BestSeller() {
-    const products = [
-      {
-        id: 1,
-        img: Card1,
-        title: "Artinibsa 4% local anaesthesia",
-        desc: "Məhsul haqqında məlumat",
-      },
-      {
-        id: 2,
-        img: Card1,
-        title: "Artinibsa 4% local anaesthesia",
-        desc: "Məhsul haqqında məlumat",
-      },
-      {
-        id: 3,
-        img: Card1,
-        title: "Artinibsa 4% local anaesthesia",
-        desc: "Məhsul haqqında məlumat",
-      },
-      {
-        id: 4,
-        img: Card1,
-        title: "Artinibsa 4% local anaesthesia",
-        desc: "Məhsul haqqında məlumat",
-      },
-      {
-        id: 5,
-        img: Card1,
-        title: "Artinibsa 4% local anaesthesia",
-        desc: "Məhsul haqqında məlumat",
-      },
+  const products = [
+    {
+      id: 1,
+      img: Card1,
+      title: "Artinibsa 4% local anaesthesia",
+      desc: "Məhsul haqqında məlumat",
+    },
+    {
+      id: 2,
+      img: Card1,
+      title: "Artinibsa 4% local anaesthesia",
+      desc: "Məhsul haqqında məlumat",
+    },
+    {
+      id: 3,
+      img: Card1,
+      title: "Artinibsa 4% local anaesthesia",
+      desc: "Məhsul haqqında məlumat",
+    },
+    {
+      id: 4,
+      img: Card1,
+      title: "Artinibsa 4% local anaesthesia",
+      desc: "Məhsul haqqında məlumat",
+    },
+    {
+      id: 5,
+      img: Card1,
+      title: "Artinibsa 4% local anaesthesia",
+      desc: "Məhsul haqqında məlumat",
+    },
   ];
-   const settings = {
-     dots: true,
-     infinite: true,
-     speed: 1000,
-     slidesToShow: 4,
-     slidesToScroll: 1,
-     autoplay: true,
-     autoplaySpeed: 2500,
-     arrows: true,
-     responsive: [
-       { breakpoint: 992, settings: { slidesToShow: 3 } },
-       { breakpoint: 768, settings: { slidesToShow: 2 } },
-       { breakpoint: 576, settings: { slidesToShow: 1 } },
-     ],
-   };
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 1000,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2500,
+    arrows: false,
+    responsive: [
+      { breakpoint: 992, settings: { slidesToShow: 3 } },
+      { breakpoint: 768, settings: { slidesToShow: 2 } },
+      { breakpoint: 576, settings: { slidesToShow: 1 } },
+    ],
+  };
   return (
     <section id="bestseller">
       <div className="bestseller">
@@ -75,7 +79,6 @@ export default function BestSeller() {
             </Link>
           </div>
         </div>
-
         <div className="slider-container">
           <Slider {...settings}>
             {products.map((product) => (

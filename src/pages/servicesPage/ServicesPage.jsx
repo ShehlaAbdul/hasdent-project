@@ -1,10 +1,10 @@
 import React from 'react';
 import "./Style.scss";
-import Servicescard1 from "../../assets/icons/ServiceCardLogo1.svg";
-import Servicescard2 from "../../assets/icons/ServiceCardLogo2.svg";
-import Servicescard3 from "../../assets/icons/ServiceCardLogo1.svg";
-import Servicescard4 from "../../assets/icons/ServiceCardLogo1.svg";
-import Servicescard5 from "../../assets/icons/ServiceCardLogo1.svg";
+import Servicescard1 from "../../assets/icons/servicesCardLogo1.svg";
+import Servicescard2 from "../../assets/icons/servicesCardLogo2.svg";
+import Servicescard3 from "../../assets/icons/servicesCardLogo3.svg";
+import Servicescard4 from "../../assets/icons/servicesCardLogo4.svg";
+import Servicescard5 from "../../assets/icons/servicesCardLogo5.svg";
 import HeroSection from '../../components/HeroSection/HeroSection';
 import ServicesAbout from '../../components/servicesAbout/ServicesAbout';
 // import ServicesCard from '../../components/ServicesCard/ServicesCard';
@@ -54,7 +54,7 @@ export default function ServicesPage() {
       <section id='services-cards'>
         <div className="services-cards container-fluid d-flex flex-column gap-5">
           {servicescard.map((item) => (
-            <div className="services-card d-flex" key={item.id}>
+            <div className="services-card d-flex flex-column" key={item.id}>
               <div className="card-img">
                 <img src={item.img} alt="" />
               </div>

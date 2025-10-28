@@ -8,14 +8,14 @@ import AboutSection from '../../components/aboutSection/AboutSection.jsx';
 
 export default function Home() {
   return (
-    <div className="">
+    <>
       <HomeHero />
-      {/* <Services /> */}
+      <Services />
       <AboutSection/>
       <BestSeller />
       <Brends />
-      <ContactUs />
+      <ContactUs /> 
       {/* <Services /> */}
-    </div>
+    </>
   );
 }
