@@ -4,8 +4,7 @@
   background-color: #eaeaec1d;
   padding: 1rem 5%;
   overflow: hidden;
-  // border: 1px solid black;
-  max-height: 100vh;
+  // max-height: 100vh; 
   .hero-title {
     font-size: 48px;
     font-weight: 600;
@@ -54,7 +53,7 @@
   }
 }
 
-@media screen and (min-width:577px) and (max-width: 1200px) {
+@media screen and (min-width:577px) and (max-width: 990px) {
     .hero-title{
         font-size: 44px !important;
     }
@@ -62,7 +61,7 @@
         width: 100% !important;
     }
     .hero-bg{
-      height: 90% !important;
+      height: 60vh !important;
       // margin-bottom: 100px !important;
     }
    

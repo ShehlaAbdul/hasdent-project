@@ -8,8 +8,15 @@ import ReadMore from '../readMore/ReadMore';
 export default function AboutSection() {
   return (
     <section id="about-sec">
-      <div className="about-sec container-fluid  p-0 row m-0">
-        <div className="layout-side col-12 col-lg-6 p-0 ">
+      <div
+        className="about-sec container-fluid  p-0 row m-0"
+        data-aos-anchor-placement="top-center"
+      >
+        <div
+          className="layout-side col-12 col-lg-6 p-0 d-flex"
+          data-aos="fade-right"
+          // data-aos-anchor-placement="top-center"
+        >
           <div className="layout ">
             <img src={AboutLayout} alt="" className="layout1" />
           </div>
@@ -17,7 +24,11 @@ export default function AboutSection() {
             <img src={Vector} alt="" />
           </div>
         </div>
-        <div className="title-side col-12 col-lg-5 d-flex flex-column justify-content-center gap-3 pb-md-5">
+        <div
+          className="title-side col-12 col-lg-5 d-flex flex-column justify-content-center gap-3 pb-md-5"
+          data-aos="fade-left"
+          // data-aos-anchor-placement="top-center"
+        >
           <SectionHead title={"Haqqımızda"} />
           <h1 className="about-title">Uğurun əsasında təcrübə və keyfiyyət</h1>
           <p>

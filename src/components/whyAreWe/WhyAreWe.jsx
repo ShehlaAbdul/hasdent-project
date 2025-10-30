@@ -7,8 +7,14 @@ import ReadMore from '../readMore/ReadMore';
 export default function WhyAreWe() {
   return (
     <section id="why-are-we">
-      <div className="why-are-we container-fluid p-0 row ">
-        <div className=" content-side col-12 col-lg-5 d-flex flex-column gap-3 justify-content-center px-3 ">
+      <div
+        className="why-are-we container-fluid  row  g-0"
+        data-aos-anchor-placement="top-center"
+      >
+        <div
+          className=" content-side col-12 col-lg-5 d-flex flex-column gap-3 justify-content-center "
+          data-aos="fade-up"
+        >
           <SectionHead title={"Niyə biz?"} />
           <h1>Daim inkişaf edən bir yol</h1>
           <p>
@@ -27,10 +33,15 @@ export default function WhyAreWe() {
             komandamızın dəstəyi və davamlı inkişaf prinsiplərimiz HASDENT-i
             stomatoloji sahədə etibar olunan bir ad halına gətirib.
           </p>
-          <ReadMore title={"Məhsullara Bax"}/>
+          <ReadMore title={"Məhsullara Bax"} />
         </div>
-        <div className="img-side col-12 col-lg-7 ">
-          <img src={WhyAreWeLayout} alt="" className='rounded-5 '/>
+        <div className="img-side col-12 col-lg-7">
+          <img
+            src={WhyAreWeLayout}
+            alt=""
+            className="rounded-5 "
+            data-aos="fade-up"
+          />
         </div>
       </div>
     </section>

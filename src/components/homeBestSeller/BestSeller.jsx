@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Style.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Link } from "react-router-dom";
@@ -19,6 +19,14 @@ import ReadMore from "../readMore/ReadMore";
 import Slider from "react-slick";
 
 export default function BestSeller() {
+    const [width, setWidth] = useState(window.innerWidth);
+  
+    useEffect(() => {
+      const handleResize = () => setWidth(window.innerWidth);
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
+  
   const products = [
     {
       id: 1,
@@ -53,19 +61,15 @@ export default function BestSeller() {
   ];
   const settings = {
     dots: true,
-    infinite: true,
-    speed: 1000,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2500,
     arrows: false,
-    responsive: [
-      { breakpoint: 992, settings: { slidesToShow: 3 } },
-      { breakpoint: 768, settings: { slidesToShow: 2 } },
-      { breakpoint: 576, settings: { slidesToShow: 1 } },
-    ],
+    infinite: false,
+    speed: 500,
+    arrows:false,
+    slidesToShow: width <= 576 ? 1 : width <= 768 ? 2 : width <= 992 ? 3 : 4,
+    slidesToScroll: 1,
+    initialSlide: 0,
   };
+
   return (
     <section id="bestseller">
       <div className="bestseller">

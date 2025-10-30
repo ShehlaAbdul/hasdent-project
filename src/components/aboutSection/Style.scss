@@ -1,6 +1,7 @@
 @use "../../styles/global.scss" as *;
 #about-sec{
-    padding: 5rem 5%;
+    padding: 1rem 5%;
+    overflow: hidden;
     .about-sec{
         .vector{
             display: none;

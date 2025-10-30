@@ -1,9 +1,10 @@
 @use "../../styles/global.scss" as *;
 
 #contact-us {
-  background-color: #faf9fc;
+  background-color: $primary-bg-color;
   padding: 4rem 5% 8rem 5%;
   min-height: 60vh;
+  
   .contact-us {
     .content-side {
       background: #f8f8ff;

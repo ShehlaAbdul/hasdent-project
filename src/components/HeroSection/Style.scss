@@ -1,6 +1,6 @@
 @use "../../styles/global.scss" as *;   
 #hero-sec {
-  height: 35vh;
+  height: 36vh;
 
   .hero-sec {
     background-image: url("../../assets/images/HeroSection.webp");
@@ -22,11 +22,22 @@
       z-index: -1; 
       pointer-events: none; 
     }
+    .hero-text{
+      h2{
+        font-size: 32px;
+        @media (max-width:576px){
+          font-size: 22px;
+        }
+      }
+      p{
+        font-size: 16px;
+      }
+    }
   }
 }
 @media screen and (max-width:576px){
     #hero-sec {
-        height:120px !important;
+        height:140px !important;
         .hero-sec {
             background-position: center 50% !important;
         }

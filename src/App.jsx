@@ -10,9 +10,20 @@ import ContactPage from "./pages/contactPage/ContactPage.jsx";
 import ProductsPage from "./pages/productsPage/ProductsPage.jsx";
 import NewsDetail from "./pages/newsDetail/NewsDetail.jsx";
 import NewsPage from "./pages/news/NewsPage.jsx";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 
 function App() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, 
+      once: false, 
+      
+    });
+     AOS.refreshHard(); 
+  }, []);
 
   return (
     <>

@@ -1,26 +1,47 @@
 @use "../../styles/global.scss" as *;
 
-#contact{
-    .contact{
-        padding: 5rem 5%;
-        min-height: 60vh;
-        bottom: 2px solid red !important;
-        h1{
-            font-size: 32px;
-            font-weight: 600;
-            padding-bottom: 30px;
-        }
-        h5{
-            font-weight: 600;
-        }
-        .map-side{
-            padding: 20px 30px;
-            display: flex;
-            justify-content: center;
-            .map{
-                width: 100%;
-             background-color: #8080802c;
-       }
-        }
+#contact {
+  .contact {
+    padding: 5rem 5%;
+    min-height: 60vh;
+    h1 {
+      font-size: 32px;
+      font-weight: 600;
+      padding-bottom: 30px;
     }
+    h5 {
+      font-weight: 600;
+    }
+    .map-side {
+      padding: 20px 30px;
+      display: flex;
+      justify-content: center;
+      min-height: 330px;
+      .map {
+        width: 100%;
+        background-color: #8080802c;
+      }
+    }
+  }
+  @media (max-width: 992px) {
+    .contact {
+        padding: 2rem 5%;
+      .map-side {
+        padding: 0;
+        padding-top: 20px;
+      }
+    }
+  }
+  @media (max-width:576px) {
+    .contact {
+      padding: 1rem 5%;
+      h1 {
+        font-size: 22px;
+        padding-bottom: 10px;
+      }
+      h5 {
+        font-size: 18px;
+      }
+    }
+  }
 }

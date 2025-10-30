@@ -49,12 +49,17 @@ export default function ServicesPage() {
         ];
   return (
     <>
-      <HeroSection page={"Xidmətlər"}/>
+      <HeroSection page={"Xidmətlər"} />
       <ServicesAbout />
-      <section id='services-cards'>
+      <section id="services-cards">
         <div className="services-cards container-fluid d-flex flex-column gap-5">
           {servicescard.map((item) => (
-            <div className="services-card d-flex flex-column" key={item.id}>
+            <div
+              className="services-card d-flex flex-column"
+              key={item.id}
+              // data-aos="fade-right"
+              // data-aos-duration="10000"
+            >
               <div className="card-img">
                 <img src={item.img} alt="" />
               </div>
@@ -62,7 +67,6 @@ export default function ServicesPage() {
                 <h6 className="card-head">{item.title}</h6>
                 <p className="card-detail">{item.detail}</p>
               </div>
-              
             </div>
           ))}
         </div>

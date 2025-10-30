@@ -5,8 +5,11 @@ import SectionHead from '../sectionHead/SectionHead';
 
 export default function ServicesAbout() {
   return (
-    <section id="services-about">
-      <div className="services-about container-fluid  row  g-0 ">
+    <section id="services-about" data-aos-anchor-placement="center-center">
+      <div
+        className="services-about container-fluid  row  g-0 "
+        data-aos="fade-up"
+      >
         <div className="col-12 col-lg-6 img-side  g-0 m-0 ">
           <img src={ServicesImg} alt="" className="rounded-5" />
         </div>

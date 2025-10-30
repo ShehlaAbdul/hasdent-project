@@ -2,17 +2,44 @@
 #services {
   padding: 5rem 5%;
 
-.services-head{
-    font-weight: 600  ;
+  .services-head {
+    font-weight: 600;
     font-size: 36px;
-}
+  }
   .services-card {
-    background-color: #F8F8FF;
+    position: relative;
+    z-index: 1;
+    background-color: #f8f8ff;
     border: 1px solid #efeef6;
-   box-shadow: 0px 1px 5px 0px #0f0c3111 ;
+    box-shadow: 0px 1px 5px 0px #0f0c3111;
     border-radius: 24px;
     padding: 14px 15px;
     height: 340px;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0px; 
+      background-color: $primary-color;
+      z-index: -1;
+      transition:
+        height 400ms ease;
+      border-radius: 24px;
+    }
+    &:hover::before {
+      height: 100%; 
+      width: 100%;
+    }
+
+    &:hover {
+      color: #fff !important;
+      .card-detail,
+      .read-more {
+        color: #fff;
+      }
+    }
     .card-img {
       width: 60px;
       height: 60px;
@@ -39,7 +66,7 @@
       display: flex;
       gap: 20px;
       color: $primary-color;
-      .read-more-arrow{
+      .read-more-arrow {
         // font-size: 30px;
         font-weight: 600;
       }
@@ -47,28 +74,26 @@
   }
 }
 
-@media screen and (min-width:576px) and (max-width:768px){
-    #services{
-        .services-head{
-            font-size: 28px !important;
-        }
+@media screen and (min-width: 576px) and (max-width: 768px) {
+  #services {
+    .services-head {
+      font-size: 28px !important;
     }
+  }
 }
 @media screen and (max-width: 576px) {
   #services {
-      padding: 5rem 5% !important;
+    padding: 5rem 5% !important;
 
-    .services-head{
-        font-size: 22px !important;
+    .services-head {
+      font-size: 22px !important;
     }
-    .services-card{
-        padding: 14px !important;
-        height: 290px !important;
+    .services-card {
+      padding: 14px !important;
+      height: 290px !important;
     }
-    .card-head{
-        font-size: 20px !important;
+    .card-head {
+      font-size: 20px !important;
     }
-    
-    
   }
 }

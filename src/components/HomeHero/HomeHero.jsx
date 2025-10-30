@@ -5,6 +5,7 @@ import HomeHeroBg from '../../assets/images/HomeHeroBg.webp';
 import Vector1 from '../../assets/images/Vector1.webp';
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Link } from 'react-router-dom';
 
 export default function HomeHero() {
     // useEffect(() => {
@@ -32,7 +33,9 @@ export default function HomeHero() {
               olmağa davam edirik.
             </p>
           </div>
-          <ReadMore title={"Məhsullara Bax"} />
+          <Link to={"/products"}>
+            <ReadMore title={"Məhsullara Bax"} />
+          </Link>
         </div>
         <div className="home-hero-img col-12 col-lg-6 m-0 g-0">
           <div className="vector d-none  d-xl-block ">

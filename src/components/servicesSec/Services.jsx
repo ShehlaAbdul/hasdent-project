@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
 import SectionHead from "../sectionHead/SectionHead";
 import "./Style.scss";
@@ -22,6 +22,14 @@ import ReadMore from "../readMore/ReadMore";
 import { Link } from "react-router-dom";
 
 export default function Services() {
+  const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const sliderRef = useRef(null);
 
   const servicescard = [
@@ -61,36 +69,11 @@ export default function Services() {
   const settings = {
     dots: true,
     arrows: false,
-    infinite: false,
+    infinite: false,  
     speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 4,
+    slidesToShow: width <= 576 ? 1 : width <= 768 ? 2 : width <= 992 ? 3 : 4,
+    slidesToScroll: 1,
     initialSlide: 0,
-    responsive: [
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 992,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
   };
 
   return (
@@ -142,7 +125,10 @@ export default function Services() {
             </div>
           ))}
         </Slider>
-        <Link to={"/services"} className="w-100 text-align-center d-flex justify-content-center mt-5">
+        <Link
+          to={"/services"}
+          className="w-100 text-align-center d-flex justify-content-center mt-5"
+        >
           <ReadMore title={"Xidmətlər"} />
         </Link>
       </div>
