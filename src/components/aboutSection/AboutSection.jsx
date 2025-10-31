@@ -9,7 +9,7 @@ export default function AboutSection() {
   return (
     <section id="about-sec">
       <div
-        className="about-sec container-fluid  p-0 row m-0"
+        className="about-sec container-fluid  p-0 row m-0 g-0"
         data-aos-anchor-placement="top-center"
       >
         <div

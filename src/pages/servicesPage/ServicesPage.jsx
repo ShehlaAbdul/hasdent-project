@@ -8,6 +8,8 @@ import Servicescard5 from "../../assets/icons/servicesCardLogo5.svg";
 import HeroSection from '../../components/HeroSection/HeroSection';
 import ServicesAbout from '../../components/servicesAbout/ServicesAbout';
 // import ServicesCard from '../../components/ServicesCard/ServicesCard';
+import Vector from "../../assets/images/Vector4.webp";
+
 
 export default function ServicesPage() {
         const servicescard = [
@@ -51,6 +53,9 @@ export default function ServicesPage() {
     <>
       <HeroSection page={"Xidmətlər"} />
       <ServicesAbout />
+      <div className='vector3'>
+        <img src={Vector} alt="" />
+      </div>
       <section id="services-cards">
         <div className="services-cards container-fluid d-flex flex-column gap-5">
           {servicescard.map((item) => (

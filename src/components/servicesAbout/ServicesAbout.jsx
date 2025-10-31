@@ -2,18 +2,31 @@ import React from 'react';
 import './Style.scss';
 import ServicesImg from "../../assets/images/ServicesLayout.webp";
 import SectionHead from '../sectionHead/SectionHead';
+import Vector from "../../assets/images/Vector4.webp"
 
 export default function ServicesAbout() {
   return (
-    <section id="services-about" data-aos-anchor-placement="center-center">
+    <section id="services-about">
+      <div className="vector">
+        <img src={Vector} alt="" />
+      </div>
+    
       <div
         className="services-about container-fluid  row  g-0 "
-        data-aos="fade-up"
+        data-aos-anchor-placement="top-center"
       >
         <div className="col-12 col-lg-6 img-side  g-0 m-0 ">
-          <img src={ServicesImg} alt="" className="rounded-5" />
+          <img
+            src={ServicesImg}
+            alt=""
+            className="rounded-5"
+            data-aos="fade-right"
+          />
         </div>
-        <div className="col-12 col-lg-6 title-side d-flex flex-column gap-3">
+        <div
+          className="col-12 col-lg-6 title-side d-flex flex-column gap-3"
+          data-aos="fade-left"
+        >
           <SectionHead title={"Xidmətlər"} />
           <h1>Geniş Çeşid və Mükəmməl Xidmət</h1>
           <p>

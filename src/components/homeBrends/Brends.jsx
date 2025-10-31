@@ -41,9 +41,9 @@ export default function Brends() {
   return (
     <section id="brands">
       <div className="brands-container ">
-        <div className="brands-list-desktop d-none d-md-block">
+        <div className="brands-list-desktop ">
           <Swiper
-            slidesPerView={5}
+            slidesPerView={6}
             spaceBetween={40}
             loop={true}
             speed={4000}
@@ -60,29 +60,29 @@ export default function Brends() {
                 spaceBetween: 20,
               },
               576: {
-                slidesPerView: 3,
+                slidesPerView: 4,
                 spaceBetween: 30,
               },
               992: {
-                slidesPerView: 5,
+                slidesPerView: 6,
                 spaceBetween: 40,
               },
             }}
           >
-            {brands.map((brand, index) => (
+            {[...brands, ...brands].map((brand, index) => (
               <SwiperSlide key={index}>
                 <img src={brand.img} alt={`brand-${index}`} />
               </SwiperSlide>
             ))}
           </Swiper>
         </div>
-        <div className="brands-list-mobile d-block d-md-none">
+        {/* <div className="brands-list-mobile d-block d-md-none">
           {brands.map((brand) => (
             <div className="brand-item" key={brand.id}>
               <img src={brand.img} alt={`brand-${brand.id}`} className="" />
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   );

@@ -1,0 +1,8 @@
+.vector4{
+    right: 0;
+    top: 100vh;
+    @media (max-width:768px){
+        top: 200vh;
+        height: 250px;
+    }
+}

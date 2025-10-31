@@ -1,15 +1,32 @@
+@use "../../styles/global.scss" as *;
 .news-card {
   background-color: #fff;
-  box-shadow: #0000003d 0px 3px 8px;
-  border-radius: 10px;
+  box-shadow: #cdcbcb3d 0px 3px 8px;
+  border-radius: 16px;
   height: 360px;
   .img-side{
     width: 100%;
-    box-shadow: #0000003d 0px 3px 8px;
+    box-shadow: #b7b5b53d 0px 3px 8px;
     overflow: hidden;
+    border-radius: 8px;
     img{
         object-fit: cover;
         object-position: center center;
+    }
+  }
+  .title-side {
+    .date{
+      font-size: 14px;
+      color: #0B0B0B;
+    }
+    .news-name{
+      font-size: 22px;
+    }
+  }
+  &:hover{
+    .news-name{
+      color: $primary-color;
+      transition: all 300ms;
     }
   }
 }

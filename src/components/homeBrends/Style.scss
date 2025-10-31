@@ -1,19 +1,24 @@
 #brands {
   background: #f8f8ff;
   padding: 50px 0;
-
-
   .brands-container {
     width: 90%;
     margin: 0 auto;
     .swiper {
+        height: 115px;  
+        padding: 5px 0; 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;   
+        .swiper-slide{
+        }
       img {
-          width: 120px;
-    height: 60px;
+        height: 100%;
+        object-fit: contain;
         opacity: 0.7;
         filter: grayscale(100%);
         transition: all 0.3s ease;
-
         &:hover {
           opacity: 1;
           filter: none;
@@ -21,15 +26,17 @@
       }
     }
   }
-  .brands-list-mobile{
-    .brand-item{
-      img{
+  .brands-list-mobile {
+    .brand-item {
+      img {
         width: 150px;
       }
       display: flex;
       padding-bottom: 50px;
       justify-content: center;
     }
- 
+  }
+  @media (max-width:576px){
+    padding: 0;
   }
 }
