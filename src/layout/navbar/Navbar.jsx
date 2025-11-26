@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import NavLogo from '../../assets/images/NavLogo.jpg';
+import NavLogo from '../../assets/images/NavLogo.webp';
 import { IoSearchOutline } from "react-icons/io5";
 import { HiBars3 } from "react-icons/hi2";
 import { LiaTimesSolid } from "react-icons/lia";
 import { HiMiniBars3BottomRight } from "react-icons/hi2";
+import { IoIosArrowDown } from "react-icons/io";
+
 
 
 import './Style.scss';
@@ -155,16 +157,18 @@ export default function Navbar() {
             Xidmətlər
           </Link>
           {/* <div className="border position-relative  g-0 m-0 p-0 gap-0"> */}
-          <div className='productDiv'>
-            <Link to="/products" className="nav-link">
-              Məhsullar
+          <div className='productDiv d-flex align-items-center'>
+            <Link to="/products" className="nav-link d-flex  align-items-center gap-2">
+              <span>Məhsullar
+              </span>
+            <IoIosArrowDown/>
             </Link>
           </div>
           <div className="products-types  mt-3 position-absolute p-0 m-0 ">
-            <div className="products-types-container  mt-3 px-5">
-              <ul className=" p-0 d-flex gap-4 ">
+            <div className="products-types-container mt-3 px-5">
+              <ul className=" p-0 d-flex gap-2 row">
                 {products.map(({ name, types }, index) => (
-                  <li key={index} className=" pe-1 d-flex flex-column">
+                  <li key={index} className=" d-flex flex-column col">
                     <h5>{name}</h5>
                     <div className="d-flex flex-column gap-2">
                       {types.map(({ type }, i) => (

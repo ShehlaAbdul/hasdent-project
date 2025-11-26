@@ -2,9 +2,9 @@ import React from "react";
 
 export default function ReadMore({title}) {
   return (
-    <div class="primary-btn" >
+    <button class="primary-btn" >
       <span>{title}</span>
-    </div>
+    </button>
   );
 }
 // data-aos="fade-right"

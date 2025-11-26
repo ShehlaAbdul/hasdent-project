@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import "./Style.scss";
 import ReadMore from '../readMore/ReadMore.jsx';
-import HomeHeroBg from '../../assets/images/HomeHeroBg.webp';
+import HomeHeroBg from '../../assets/images/HomeHero.webp';
 import Vector1 from '../../assets/images/Vector1.webp';
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -17,9 +17,9 @@ export default function HomeHero() {
   
   return (
     <section id="home-hero">
-      <div className="container-fluid row p-0 m-0 g-0">
+      {/* <div className="container-fluid row p-0 m-0 g-0">
         <div
-          className="col-12 col-lg-6 d-flex flex-column justify-content-center gap-3 mb-5"
+          className="col-12 col-lg-6 d-flex flex-column justify-content-center"
           // data-aos="fade-right"
         >
           <div className="d-flex flex-column">
@@ -33,12 +33,14 @@ export default function HomeHero() {
               olmağa davam edirik.
             </p>
           </div>
-          <Link to={"/products"}>
-            <ReadMore title={"Məhsullara Bax"} />
-          </Link>
+          <div>
+            <Link to={"/products"}>
+              <ReadMore title={"Məhsullara Bax"} />
+            </Link>
+          </div>
         </div>
         <div className="home-hero-img col-12 col-lg-6 m-0 g-0">
-          <div className="vector d-none  d-xl-block ">
+          <div className="vector ">
             <img src={Vector1} alt="" />
           </div>
           <img
@@ -47,6 +49,29 @@ export default function HomeHero() {
             className="hero-bg"
             // data-aos="fade-left"
           />
+        </div>
+      </div> */}
+      <div className="container-fluid row   g-0">
+        <div className=" col-12 col-lg-6 m-0 g-0">
+          <div className="text-side">
+            <h1 className="head-title">
+              <span className="purple">HAS</span>
+              <span className="yellow">DENT</span>- Etibarın və Keyfiyyətin Adı
+            </h1>
+            <p className="content">
+              1996-cı ildən stomatoloji sahədə təcrübəmiz və geniş məhsul
+              çeşidimizlə, klinikalar və mütəxəssislər üçün etibarlı tərəfdaş
+              olmağa davam edirik.
+            </p>
+            <div>
+              <ReadMore title={"Məhsullara bax"} />
+            </div>
+          </div>
+        </div>
+        <div className="img-side col-12 col-lg-6  ">
+            <div className="vector">
+              <img src={Vector1} alt="" />
+            </div>
         </div>
       </div>
     </section>

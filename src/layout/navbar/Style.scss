@@ -4,6 +4,7 @@
  position: fixed; 
  top: 20px;
  left: 50%;
+ height: 68px;
  transform: translate(-50%);
  width: 90%;
  z-index: 3;
@@ -42,6 +43,10 @@
         // font-weight: 500;
         padding-bottom: 10px;
         color: #0B0B0B;
+      }
+      p:hover{
+        color: $primary-color;
+        transition: all 200ms;
       }
     }
  }
@@ -158,151 +163,8 @@ z-index: 1050 !important;
   background: #00000083;
   z-index: 1000;
 }
-// nav {
-//   // margin-top: 20px;
-//   // padding: 10px ;
-//   padding: 25px 0 ;
-//   background-color: $primary-bg-color;
-//   .nav-content {
-//     z-index: 1;
-//   background-color: #fff;
-//     margin: 30px 5rem 40px 5rem !important;
-//     padding: 10px 10px ;
-//     display: grid;
-//     grid-template-columns: auto 1fr auto;
-//     align-items: center;
-//     gap: 1rem;
-//     border: 2px solid #a2a2ad31;
-//     position: relative; 
-//   }
-
-//   // logo
-//   .nav-logo {
-//     width: 160px;
-//     height: 50px !important;
-//     object-fit: cover;
-//     margin-left: 0; // handled by container
-//   }
-
-//   // bootstrap toggler customization
-//   .navbar-toggler {
-//     border: none;
-//     background: transparent;
-//     display: none; // shown only on small screens
-//   }
-
-//   // nav items
-//   .nav-item {
-//     border-radius: 5px;
-//     padding: 0;
-
-//     .nav-link {
-//       color: $main-text-color;
-//       font-weight: 500;
-//       font-size: 16px;
-//       padding: 5px 12px; 
-//       display: inline-block;
-//     }
-
-//     &:hover {
-//       background-color: #f5f5ff;
-//       a {
-//         color: $primary-color;
-//       }
-//     }
-//   }
-
-//   /* search: on desktop keep it at the far right using absolute positioning
-//      (search lives inside .navbar-collapse in the DOM, but we place it visually at the right) */
-//   .search {
-//     position: absolute;
-//     right: 1rem;
-//     top: 50%;
-//     transform: translateY(-50%);
-//     display: flex;
-//     justify-content: flex-end;
-//     align-items: center;
-//     width: auto;
-//   }
-
-//   // Responsive behavior
-//   @media (max-width: 991.98px) {
-//     .nav-content {
-//       margin: 0 10px;
-//       /* stack layout: logo and toggler on first row, collapse occupies full width below */
-//       grid-template-columns: auto auto;
-//       grid-template-rows: auto auto;
-//       grid-template-areas:
-//         "logo toggler"
-//         "center center";
-//     }
-
-//     .nav-logo {
-//       width: 120px;
-//       height: auto;
-//     }
-
-//     .nav-item {
-//       .nav-link {
-//         padding: 8px 6px;
-//         font-size: 14px;
-//       }
-//     }
-//     .navbar-nav {
-//       gap: 0;
-//       width: 100%;
-//     }
-//     .search {
-//       position: static;
-//       width: 100%;
-//       padding: 0.5rem 1rem;
-//       justify-content: flex-start;
-//       margin-top: 0.25rem;
-//     }
-
-//     .navbar-toggler {
-//       display: block;
-//       grid-area: toggler;
-//       justify-self: end;
-//     }
-
-//     .navbar-collapse {
-//       grid-area: center;
-//       width: 100%;
-//     }
-//   }
-
-//   @media (min-width: 992px) {
-//     .nav-content {
-//       margin: 0 5rem;
-//       grid-template-columns: auto 1fr auto;
-//     }
-
-//     .nav-logo {
-//       width: 160px;
-//       height: 60px;
-//     }
-
-//     .navbar-nav {
-//       display: flex;
-//       flex-direction: row;
-//       align-items: center;
-//       gap: 0.25rem;
-//       justify-content: center; /* center the UL */
-//     }
-
-//     .nav-item {
-//       padding: 5px 10px;
-//     }
-
-//     .search {
-//       width: auto;
-//       justify-content: flex-end;
-//       /* ensure search is visually on the far right */
-//       position: absolute;
-//       right: 1rem;
-//       top: 50%;
-//       transform: translateY(-50%);
-//     }
-//   }
-// }
+@media (min-width:1536px){
+  .custom-navbar{
+    width: 80%;
+  }
+}

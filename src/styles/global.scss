@@ -8,17 +8,15 @@ $gradient-bg:#f8f8ff;
 
 
 .primary-btn {
-  width: 180px;
-  height: 56px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border: none;
+  color: #ffff;
   background-color: $primary-color;
-  color: #fff;
-  border-radius: 10px;
+  padding: 10px 20px;
+  border-radius: 12px;
+  height: 56px;
   cursor: pointer;
   &:hover {
-    background-color: darken($primary-color, 10%);
+    background-color: #663b82;
   }
   @media screen and (max-width: 576px) {
     width: 100% !important;
