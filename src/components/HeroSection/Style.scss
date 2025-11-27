@@ -1,28 +1,14 @@
 @use "../../styles/global.scss" as *;   
 #hero-sec {
-  height: 36vh;
 
   .hero-sec {
-    background-image: url("../../assets/images/HeroSection.webp");
-    background-position: center 75%;
+    background-image: url("../../assets/images/HeroSection2.webp");
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
     position: relative;
-    z-index: -2; 
-
-    // overlay
-    &::after {
-      content: "";
-      display: block;
-      position: absolute;
-    opacity: 0.6;
-      inset: 0; 
-      background-color:darken( $primary-color, 20%); 
-      z-index: -1; 
-      pointer-events: none; 
-    }
     .hero-text{
+      padding: 78px 0;
       h2{
         font-size: 32px;
         @media (max-width:576px){
@@ -38,8 +24,6 @@
 @media screen and (max-width:576px){
     #hero-sec {
         height:140px !important;
-        .hero-sec {
-            background-position: center 50% !important;
-        }
+        
     }
 } 

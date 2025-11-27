@@ -12,7 +12,7 @@ export default function WhyAreWe() {
         data-aos-anchor-placement="top-center"
       >
         <div
-          className=" content-side col-12 col-lg-5 d-flex flex-column gap-3 justify-content-center "
+          className=" content-side col-12 col-xl-5 d-flex flex-column gap-3 justify-content-center "
           data-aos="fade-up"
         >
           <SectionHead title={"Niyə biz?"} />
@@ -33,9 +33,12 @@ export default function WhyAreWe() {
             komandamızın dəstəyi və davamlı inkişaf prinsiplərimiz HASDENT-i
             stomatoloji sahədə etibar olunan bir ad halına gətirib.
           </p>
-          <ReadMore title={"Məhsullara Bax"} />
+          <div>
+            {" "}
+            <ReadMore title={"Məhsullara Bax"} />
+          </div>
         </div>
-        <div className="img-side col-12 col-lg-7">
+        <div className="img-side col-12 col-xl-7">
           <img
             src={WhyAreWeLayout}
             alt=""

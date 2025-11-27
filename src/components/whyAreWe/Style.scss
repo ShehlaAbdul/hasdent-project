@@ -20,21 +20,19 @@ min-height: 70vh;
              @media (max-width:576px){
             }
         }
-        padding-bottom: 50px;
+        padding-bottom: 40px;
     }
     .img-side{
         padding: 0;
         justify-content: flex-end;
         display: flex;
         padding-left: 60px;
-        padding-inline: 60px;
         img{
             width:100%;
-            // height: 93%;
             object-fit: cover;
         }
-        @media (max-width:992px){
-            max-height: 70vh;
+        @media (max-width:1204px){
+            max-height: 600px;
             padding-left: 0;
             margin: 0;
             justify-content: center;
@@ -42,6 +40,6 @@ min-height: 70vh;
     }
 }
 @media (max-width:768px){
-    margin-block:2rem 5rem;
+    margin-block:64px ;
 }
 }
