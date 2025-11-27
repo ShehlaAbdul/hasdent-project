@@ -10,20 +10,17 @@ footer {
   overflow: hidden;
    .vector{
         position: absolute;
-        width: 500px;
-        height: auto;
-        left: -250px;
+        width: 50%;
+        max-width: 500px;
+        left: -20%;
         top: 0;
         z-index: 1;
       
         @media (min-width:576px) and (max-width:768px){
-            left: -30%;
-            // top: -10%;
         }
         @media (max-width:575px){
-            left: -50%;
-            width: 400px;
-            // top: -10%;
+          width: 90%;
+          left: -30%;
         }
     }
     .vector-2{
@@ -86,7 +83,7 @@ footer {
         color: $main-text-color;
        h5 {
           font-weight: 600;
-          font-size: 18px;
+          font-size: 16px;
           border-bottom: 2px solid #744394ba;
           padding-bottom: 15px;
           margin-right: 50px;
@@ -116,6 +113,9 @@ footer {
         li {
             p{
                 margin:0;
+            }
+            span{
+              font-size: 16px;
             }
           .icons-side {
             padding: 0;
