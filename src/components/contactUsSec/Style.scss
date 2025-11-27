@@ -2,9 +2,7 @@
 
 #contact-us {
   background-color: $primary-bg-color;
-  padding: 4rem 5% 8rem 5%;
-  min-height: 60vh;
-  
+  padding: 104px 5% 194px 5%;
   .contact-us {
     .content-side {
       background: #f8f8ff;
@@ -16,50 +14,59 @@
         left: 0;
         top: 0;
         z-index: 0;
+        width: 50%;
+        max-width: 200px;
       }
       .vector2 {
         position: absolute;
         right: -50px;
         bottom: -50px;
         rotate: 180deg;
+        width: 50%;
+        max-width: 240px;
       }
       .content {
         position: relative;
         z-index: 2 !important;
-        padding: 50px;
+        padding:70px 5%;
         h1 {
           font-weight: 600;
         }
       }
     }
     .img-side {
-          height: 50vh;
         object-fit: cover;
         
       img {
+        object-fit: cover;
         @media (max-width: 768px) {
-          border-radius: 0 !important;
+          border-radius: 20px !important;
         }
       
       }
     }
   }
-}
-
-@media (max-width: 576px) {
-  .contact-us {
-    .content {
-      gap: 15px;
-      h1 {
-        font-size: 22px;
-      }
-      p {
-        font-weight: 500;
-      }
-      padding: 40px 10px !important;
+  @media (max-width:992px){
+    h1{
+      font-size: 22px;
     }
-    .img-side{
-      height: 40vh !important;
+  }
+  
+  @media (max-width: 576px) {
+    .contact-us {
+      .content {
+        gap: 15px;
+        h1 {
+          font-size: 22px;
+        }
+        p {
+          font-weight: 500;
+        }
+        padding: 40px 10px !important;
+      }
+      .img-side{
+        height: 250px !important;
+      }
     }
   }
 }

@@ -1,9 +1,9 @@
-import React from 'react';
-import './Style.scss';
+import React from "react";
+import "./Style.scss";
 import AboutLayout from "../../assets/images/AboutLayout.webp";
 import Vector from "../../assets/images/Vector2.webp";
-import SectionHead from '../sectionHead/SectionHead';
-import ReadMore from '../readMore/ReadMore';
+import SectionHead from "../sectionHead/SectionHead";
+import ReadMore from "../readMore/ReadMore";
 
 export default function AboutSection() {
   return (
@@ -13,19 +13,14 @@ export default function AboutSection() {
         data-aos-anchor-placement="top-center"
       >
         <div
-          className="layout-side col-12 col-lg-6 p-0 d-flex"
+          className="layout-side col-12 col-lg-6 p-0 g-0 d-flex"
           data-aos="fade-right"
           // data-aos-anchor-placement="top-center"
         >
-          <div className="layout ">
-            <img src={AboutLayout} alt="" className="layout1" />
-          </div>
-          <div className="vector">
-            <img src={Vector} alt="" />
-          </div>
+          <img src={AboutLayout} alt="" className="layout1" />
         </div>
         <div
-          className="title-side col-12 col-lg-5 d-flex flex-column justify-content-center gap-3 pb-md-5"
+          className="title-side col-12 col-lg-6 d-flex flex-column justify-content-center gap-3  "
           data-aos="fade-left"
           // data-aos-anchor-placement="top-center"
         >
@@ -41,25 +36,11 @@ export default function AboutSection() {
             ehtiyaclarına uyğun olaraq məhsul çeşidini artırmaq və xidmət
             keyfiyyətini yüksəltmək öhdəliyimizdir.
           </p>
-          <ReadMore title={"Məhsullara bax "} />
+          <div>
+            <ReadMore title={"Məhsullara bax "} />
+          </div>
         </div>
       </div>
     </section>
   );
 }
-
-//  <section id="about" className="about ">
-//    <div className="about-container border border-dark ">
-//      <div className="row">
-//        <div className="about-layout col">
-//          {/* <div className="layot1">
-//               <img src={AboutLayout} alt="" />
-//             </div> */}
-//          {/* <div className="layout2">
-//               <img src={AboutLayout2} alt="" />
-//             </div> */}
-//        </div>
-//        <div className="content-sec col">text</div>
-//      </div>
-//    </div>
-//  </section>;

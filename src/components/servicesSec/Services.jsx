@@ -14,6 +14,7 @@ import Servicescard2 from "../../assets/icons/servicesCardLogo2.svg";
 import Servicescard3 from "../../assets/icons/servicesCardLogo3.svg";
 import Servicescard4 from "../../assets/icons/servicesCardLogo4.svg";
 import Servicescard5 from "../../assets/icons/servicesCardLogo5.svg";
+import Vector from "../../assets/images/Vector1.webp"
 
 import RightArrow from "../../assets/icons/rightArrow.svg";
 import LeftArrow from "../../assets/icons/leftArrow.svg";
@@ -71,16 +72,16 @@ export default function Services() {
     arrows: false,
     infinite: false,  
     speed: 500,
-    slidesToShow: width <= 576 ? 1 : width <= 768 ? 2 : width <= 992 ? 3 : 4,
+    slidesToShow: width <= 576 ? 1 : width <= 768 ? 2 : width <= 1048  ? 3 : 4,
     slidesToScroll: 1,
     initialSlide: 0,
   };
 
   return (
     <section id="services">
-      <div className="sevrices container-fluid  p-0 g-0 m-0 d-flex  flex-column gap-1 gap-md-2">
+      <div className="services container-fluid  p-0 g-0 m-0 d-flex  flex-column gap-1 gap-md-2">
         <div className="d-flex w-100 justify-content-between  align-items-end g-0">
-          <div className="d-flex flex-column gap-3">
+          <div className="d-flex flex-column gap-4">
             <SectionHead title={"Xidmətlər"} />
             <h1 className="services-head">Geniş Çeşid və Mükəmməl Xidmət</h1>
           </div>
@@ -131,6 +132,9 @@ export default function Services() {
         >
           <ReadMore title={"Xidmətlər"} />
         </Link>
+      </div>
+        <div className="vector">
+          <img src={Vector} alt="" />
       </div>
     </section>
   );

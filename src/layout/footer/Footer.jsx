@@ -1,5 +1,6 @@
 import React from 'react';
-import Logo from "../../assets/images/NavLogo.jpg"
+// import Logo from "../../assets/images/NavLogo.jpg"
+import Logo from "../../assets/images/NavLogo.webp";
 import { Link } from 'react-router-dom';
 // import SlSocialInstagram from "react-icons";
 import { TbBrandFacebook } from "react-icons/tb";

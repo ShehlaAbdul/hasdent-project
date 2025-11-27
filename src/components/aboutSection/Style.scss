@@ -1,16 +1,46 @@
 @use "../../styles/global.scss" as *;
 #about-sec{
-    padding: 1rem 5%;
+    padding: 0 5%;
+    margin-top: 100px;
     overflow: hidden;
     .about-sec{
         .vector{
             display: none;
         }
     }
+    .title-side{
+        padding-left: 5%;
+        h1{
+            font-size: 32px;
+        }
+    }
+    .layout-side{
+        img{
+            width: 100%;
+            object-position: center;
+        }
+       
+    }
+}
+@media (max-width:992px){
+    .title-side{
+        padding-left: 0 !important;
+    }
+    .layout-side{
+        object-fit: contain !important;
+    }
 }
 @media screen and (max-width:576px){
     #about-sec{
         padding: 1rem 5% !important ;
+        .layout-side{
+            height: 220px;
+            width: 100% !important;
+        }
+        .about-title{
+            font-size: 22px !important;
+        }
     }
+    
 }
 
