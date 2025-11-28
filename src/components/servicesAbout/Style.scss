@@ -1,24 +1,23 @@
 @use "../../styles/global.scss" as *;
 #services-about{
-    min-height: 70vh;
-    // background-color: $gradient-bg; 
     overflow: hidden;
     position: relative;
     .vector{
         position: absolute;
-        top: -30%;
-          transform: rotate(180deg);
-          opacity: 0.5;
+        top: -120px;
+        width: 30%;
+        max-width: 130px;
+        transform: rotate(180deg);
     }
    
     .services-about{
-        padding: 7rem 5%;
+        padding: 60px 5% 0 5%;
         height: 100%;
         display: flex;
         .img-side{
-            min-height: 35vh;
+            min-height: 200px;
             height: auto;
-            padding:0px  30px ;
+            padding:0px  30px 0 0 ;
             img{
                 width: 100%;  
                 box-shadow: 2px 10px 20px #1814432B,2px 4px 10px #0000000A;
@@ -57,7 +56,7 @@
         .services-about{
             .img-side{
               padding: 0;
-              padding-bottom: 20px;
+              padding-bottom: 40px;
               img{
               width: 100%;
           }
