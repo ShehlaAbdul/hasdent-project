@@ -1,0 +1,89 @@
+{
+  "header": {
+    "home": "Ana səhifə",
+    "aboutUs": "Haqqımızda",
+    "services": "Xidmətlər",
+    "products": "Məhsullar",
+    "news": "Xəbərlər",
+    "partners": "Partnyorlar",
+    "contact": "Əlaqə"
+  },
+  "btn": {
+    "readMore": "Məhsullara bax"
+  },
+  "title":{
+    "readMore":"Daha Ətraflı",
+    "lookAll":"Hamısına bax",
+    "whyUs":"Niyə Biz?"
+  },
+  "footer":{
+    "logoTitle":"HASDENT –   Etibarın və Keyfiyyətin Adı",
+    "quickLinks":"Sürətli keçid",
+    "products":"Məhsullar",
+    "contactUs":"Əlaqə",
+    "loc":"Ünvan:",
+    "locName":"Adil Məmmədov 11 , Binəqədi ray, Bakı Ş., Azərbaycan",
+    "phone":"Telefon"
+  },
+
+  "home": {
+    "heroSection": {
+      "title": "- Etibarın və Keyfiyyətin Adı",
+      "text":"1996-cı ildən stomatoloji sahədə təcrübəmiz və geniş məhsul çeşidimizlə, klinikalar və mütəxəssislər üçün etibarlı tərəfdaş olmağa davam edirik."
+    },
+    "servicesSection": {
+      "title": "Geniş Çeşid və Mükəmməl Xidmət",
+      "service1": "Ümumi Stomatologiya",
+      "service1subtitle": "Müalicə, restavrasiya və profilaktika, anesteziya üçün geniş çeşiddə materiallar.",
+      "service2": "Ortodontologiya",
+      "service2subtitle": "Şəffaf elaynerlər – estetik və rahatlığı ön planda tutan müasir həllər.",
+      "service3": "İmplantologiya",
+      "service3subtitle": "Müasir implant sistemləri və aksesuarları.",
+      "service4": "Üz-Çənə Cərrahiyyəsi",
+      "service4subtitle": "Biomateriallar:membranlar, insan və heyvan mənşəli sümüklər",
+      "service5": "Diş Laboratoriyaları",
+      "service5subtitle": "Diş texnikləri üçün nəzərdə tutulmuş materiallar və avadanlıqlar, laboratoriya işlərinin keyfiyyətini və dəqiqliyini artırmaq məqsədilə seçilmişdir."
+    },
+    "aboutSection": {
+      "title": "Uğurun əsasında təcrübə və keyfiyyət",
+      "subtitle": "HASDENT MMC-nin hekayəsi 1996-cı ildən başlayır. Təsisçimiz Namiq Həsənov stomatoloji məhsullar sahəsində uzun illərin təcrübəsi ilə bu sektorda önəmli boşluğu doldurmağı hədəfləmişdir. Şirkətimiz illər boyu Stomart adı altında fəaliyyət göstərmiş, 2015-ci ildən isə daha geniş vizyonla HASDENT olaraq yoluna davam edir. Bu dəyişiklik sadəcə bir ad yenilənməsi deyil, həm də bazarın ehtiyaclarına uyğun olaraq məhsul çeşidini artırmaq və xidmət keyfiyyətini yüksəltmək öhdəliyimizdir."
+    },
+    "productSec": {
+      "highsale": "Ən çox seçilən məhsullar"
+    },
+    "contactUsSec": {
+      "title":"Bizimlə Əlaqə Saxlayın",
+      "text":"Məhsullarımız və xidmətlərimiz haqqında məlumat almaq üçün bizimlə əlaqə qurun."
+    }
+  },
+  "about":{
+   "abousUs":{
+     "title": "Uğurun əsasında təcrübə və keyfiyyət",
+     "text": "HASDENT MMC-nin hekayəsi 1996-cı ildən başlayır. Təsisçimiz Namiq Həsənov stomatoloji məhsullar sahəsində uzun illərin təcrübəsi ilə bu sektorda önəmli boşluğu doldurmağı hədəfləmişdir. Şirkətimiz illər boyu Stomart adı altında fəaliyyət göstərmiş, 2015-ci ildən isə daha geniş vizyonla HASDENT olaraq yoluna davam edir. Bu dəyişiklik sadəcə bir ad yenilənməsi deyil, həm də bazarın ehtiyaclarına uyğun olaraq məhsul çeşidini artırmaq və xidmət keyfiyyətini yüksəltmək öhdəliyimizdir."
+   },
+   "whyUs":{
+    "title":"Daim inkişaf edən bir yol",
+    "text1":"HASDENT olaraq məqsədimiz yalnız stomatoloji məhsullar təqdim etmək deyil, həm də müştərilərimizə hər zaman ən müasir və etibarlı həlləri çatdırmaqdır. Yeniliklərə açıq yanaşmamız, genişlənən məhsul çeşidimiz və keyfiyyətə sarsılmaz inamımız sayəsində biz bu sektorda fərq yaradırıq.",
+    "text2":"Bu yanaşma bizə yalnız məhsul təqdimatında deyil, həm də tərəfdaşlarımızla uzunmüddətli əməkdaşlıq qurmaqda üstünlük qazandırır. Hər bir müştərimizin ehtiyaclarını düzgün anlamaq və onlara dəyər qatan həllər təqdim etmək bizim üçün əsas prioritetdir. Müasir texnologiyalarla zənginləşdirilmiş xidmətlərimiz, peşəkar komandamızın dəstəyi və davamlı inkişaf prinsiplərimiz HASDENT-i stomatoloji sahədə etibar olunan bir ad halına gətirib."
+   }
+  },
+  "servicesPage":{
+    "title":"Geniş Çeşid və Mükəmməl Xidmət",
+    "text":"HASDENT olaraq, bizim əsas məqsədimiz stomatologiya sahəsində çalışan peşəkarları, stomatoloji klinikaları və laboratoriyaları ən yüksək standartlara cavab verən məhsullarla təmin etməkdir. Məhsul portfelimiz genişdir və peşəkar stomatologiyanın bütün əsas sahələrini əhatə edir. Bizim üçün keyfiyyət təkcə məhsulun özü deyil, həm də təqdim etdiyimiz xidmətdir. Hər bir müştəri ilə fərdi işləyir, onların ehtiyaclarını anlamağa çalışır və ən doğru məhsulu seçmələrinə kömək edirik. HASDENT sadəcə bir təchizatçı deyil, sizin inkişafınızda maraqlı olan etibarlı bir tərəfdaşdır.  Gələcəkdə də stomatologiya sahəsinin inkişafına töhfə vermək, yenilikləri ilk olaraq Azərbaycana gətirmək və peşəkarların işini asanlaşdırmaq üçün çalışacağıq. HASDENT ilə birgə, stomatologiyanın gələcəyini yaradın!",
+    "services":{
+      "service1":"Ümumi Stomatologiya",
+      "text1":"Müalicə, restavrasiya və profilaktika üçün nəzərdə tutulmuş yüksək keyfiyyətli materiallardan başlayaraq, anesteziya sahəsində tətbiq olunan innovativ həllərə qədər geniş məhsul çeşidi təqdim edirik. Məqsədimiz stomatoloqlara həm gündəlik praktikada, həm də xüsusi prosedurlarda etibarlı dəstək olmaqdır.",
+      "service2":"Ortodontologiya",
+      "text2":"Şəffaf elaynerlər və digər müasir ortodontik məhsullarımız pasiyentlərə həm estetik görünüş, həm də maksimum rahatlıq təmin edir. Bu həllər müalicə müddətində gündəlik həyata uyğunlaşmanı asanlaşdırır və peşəkar stomatoloqlara effektiv nəticələr əldə etməyə imkan yaradır.",
+      "service3":"İmplantologiya",
+      "text3":"Müasir implant sistemləri və onların aksesuarları uzunmüddətli etibarlılığı ilə seçilir. Bizim təqdim etdiyimiz məhsullar stomatoloqlara pasiyentlər üçün funksionallığı, estetikliyi və davamlılığı birləşdirən həllər yaratmağa şərait yaradır. Keyfiyyətli materiallar sayəsində implant prosedurları daha uğurlu və rahat olur.",
+      "service4":"Üz-Çənə Cərrahiyyəsi",
+      "text4":"Biomateriallar, membranlar, insan və heyvan mənşəli sümüklərdən ibarət məhsul portfelimiz üz-çənə cərrahiyyəsi üçün etibarlı dəstəkdir. Bu materiallar ən mürəkkəb prosedurlarda belə yüksək standartları təmin edir, cərrahlara isə təhlükəsiz və effektiv nəticələr əldə etməyə imkan verir.",
+      "service5":"Diş Laboratoriyaları",
+      "text5":"Diş texnikləri üçün nəzərdə tutulmuş materiallar və avadanlıqlar, laboratoriya işlərinin keyfiyyətini və dəqiqliyini artırmaq məqsədilə seçilmişdir. Bizim təqdim etdiyimiz məhsullar sayəsində protezlərin hazırlanması, bərpa və digər texniki proseslər daha sürətli, dəqiq və etibarlı olur. Hər bir detal yüksək standartlara cavab verir və stomatoloqlarla yanaşı laboratoriya mütəxəssislərinin də işini asanlaşdırır."
+    }
+  }
+
+
+}
+

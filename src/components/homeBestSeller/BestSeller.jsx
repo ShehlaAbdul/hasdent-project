@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Style.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Link } from "react-router-dom";
 import {
   Autoplay,
   Keyboard,
@@ -18,8 +17,24 @@ import SectionHead from "../sectionHead/SectionHead";
 import ReadMore from "../readMore/ReadMore";
 import Slider from "react-slick";
 
+import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import {
+  getCurrentLanguage,
+  addLanguageToPath,
+  removeLanguageFromPath,
+} from "../../utils/languageUtils";
+
+
 export default function BestSeller() {
     const [width, setWidth] = useState(window.innerWidth);
+    const { t, i18n } = useTranslation();
+        const { pathname } = useLocation();
+        // Get current language from URL BAXXXXXXXXXXXXXXXX BUNA
+        const currentLanguage = getCurrentLanguage(pathname);
+        const createLanguageAwarePath = (path) => {
+          return addLanguageToPath(path, currentLanguage);
+  }; 
   
     useEffect(() => {
       const handleResize = () => setWidth(window.innerWidth);
@@ -74,12 +89,12 @@ export default function BestSeller() {
     <section id="bestseller">
       <div className="bestseller">
         <div className="">
-          <SectionHead title={"Məhsullar"} />
+          <SectionHead title={t("header.products")} />
           <div className="d-flex justify-content-between">
-            <h1 className="py-4 fs-2 ">Ən çox seçilən məhsullar</h1>
+            <h1 className="py-4 fs-2 ">{t("home.productSec.highsale")}</h1>
             <Link to="/products" className="d-none d-md-block">
               {" "}
-              <ReadMore title={"Hamısına Bax"} />
+              <ReadMore title={t("title.lookAll")} />
             </Link>
           </div>
         </div>
@@ -99,7 +114,7 @@ export default function BestSeller() {
           </Slider>
         </div>
         <Link to={"/products"} className="d-block d-md-none pt-5">
-          <ReadMore title={"Hamısına bax "} />
+          <ReadMore title={t("title.lookAll")} />
         </Link>
       </div>
     </section>

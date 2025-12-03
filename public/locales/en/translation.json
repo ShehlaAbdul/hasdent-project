@@ -1,0 +1,86 @@
+{
+  "header": {
+    "home": "HomePage ",
+    "aboutUs": "About Us",
+    "services": "Services",
+    "products": "Products",
+    "news": "News",
+    "partners": "Partners",
+    "contact": "Contact"
+  },
+  "btn": {
+    "readMore": "View Products"
+  },
+  "title": {
+    "readMore": "Read More",
+    "lookAll": "View All",
+    "whyUs": "Why Us?"
+  },
+  "footer": {
+    "logoTitle": "HASDENT – The Name of Trust and Quality",
+    "quickLinks": "Quick Links",
+    "products": "Products",
+    "contactUs": "Contact",
+    "loc": "Address:",
+    "locName": "Adil Mammadov 11, Binagadi District, Baku, Azerbaijan",
+    "phone": "Phone"
+  },
+
+  "home": {
+    "heroSection": {
+      "title": "- The Name of Trust and Quality",
+      "text": "Since 1996, with our experience in the dental field and a wide range of products, we continue to be a reliable partner for clinics and professionals."
+    },
+    "servicesSection": {
+      "title": "Wide Range & Excellent Service",
+      "service1": "General Dentistry",
+      "service1subtitle": "A wide selection of materials for treatment, restoration, prophylaxis, and anesthesia.",
+      "service2": "Orthodontics",
+      "service2subtitle": "Clear aligners – modern solutions prioritizing aesthetics and comfort.",
+      "service3": "Implantology",
+      "service3subtitle": "Modern implant systems and accessories.",
+      "service4": "Oral and Maxillofacial Surgery",
+      "service4subtitle": "Biomaterials: membranes, human and animal-based bone substitutes.",
+      "service5": "Dental Laboratories",
+      "service5subtitle": "Materials and equipment designed for dental technicians to enhance precision and quality in laboratory work."
+    },
+    "aboutSection": {
+      "title": "Experience and Quality at the Core of Success",
+      "subtitle": "The story of HASDENT LLC began in 1996. Our founder, Namig Hasanov, aimed to fill a significant gap in the dental products market based on his extensive experience in the field. For many years, the company operated under the name Stomart, and since 2015, it has continued its journey with a broader vision as HASDENT. This change was not just a name update—it reflects our commitment to expanding our product range and improving service quality in line with market needs."
+    },
+    "productSec": {
+      "highsale": "Top-Selling Products"
+    },
+    "contactUsSec": {
+      "title": "Contact Us",
+      "text": "Get in touch with us to learn more about our products and services."
+    }
+  },
+  "about": {
+    "abousUs": {
+      "title": "Experience and Quality at the Core of Success",
+      "text": "The story of HASDENT LLC began in 1996. Our founder, Namig Hasanov, aimed to fill a significant gap in the dental products market based on his extensive experience in the field. For many years, the company operated under the name Stomart, and since 2015, it has continued its journey with a broader vision as HASDENT. This change was not just a name update—it reflects our commitment to expanding our product range and improving service quality in line with market needs."
+    },
+    "whyUs": {
+      "title": "A Path of Continuous Growth",
+      "text1": "At HASDENT, our mission is not only to provide dental products but also to deliver the most modern and reliable solutions to our customers at all times. Our openness to innovation, expanding product range, and unwavering commitment to quality set us apart in this field.",
+      "text2": "This approach gives us an advantage not only in delivering products but also in establishing long-term partnerships. Understanding each customer’s needs and providing value-driven solutions is our top priority. Supported by modern technologies, our services, professional team, and principles of continuous development make HASDENT a trusted name in the dental sector."
+    }
+  },
+  "servicesPage": {
+    "title": "Wide Range & Excellent Service",
+    "text": "At HASDENT, our primary mission is to provide dental professionals, clinics, and laboratories with products that meet the highest standards. Our product portfolio is extensive and covers all major areas of professional dentistry. For us, quality is not only about the products themselves—it is also about the service we deliver. We work closely with each customer, understand their needs, and help them choose the right product. HASDENT is not just a supplier; we are a reliable partner invested in your growth. We will continue contributing to the development of the dental industry, bringing innovations to Azerbaijan, and making the work of professionals easier. Together with HASDENT, shape the future of dentistry!",
+    "services": {
+      "service1": "General Dentistry",
+      "text1": "From high-quality materials designed for treatment, restoration, and prophylaxis to innovative solutions used in anesthesia, we offer a wide range of products. Our goal is to support dentists in both everyday practice and specialized procedures.",
+      "service2": "Orthodontics",
+      "text2": "Our clear aligners and other modern orthodontic products offer patients both aesthetic appearance and maximum comfort. These solutions make adaptation during treatment easier and help professionals achieve effective results.",
+      "service3": "Implantology",
+      "text3": "Our modern implant systems and accessories stand out for long-term reliability. These products enable dentists to provide solutions that combine functionality, aesthetics, and durability. With quality materials, implant procedures become more successful and efficient.",
+      "service4": "Oral and Maxillofacial Surgery",
+      "text4": "Our portfolio of biomaterials, membranes, and human or animal-based bone substitutes provides reliable support for oral and maxillofacial surgery. These materials ensure high standards even in the most complex procedures, enabling surgeons to achieve safe and effective results.",
+      "service5": "Dental Laboratories",
+      "text5": "Materials and equipment designed for dental technicians are carefully selected to enhance the quality and precision of laboratory work. With our products, processes such as prosthetic fabrication, restoration, and other technical operations become faster, more precise, and more reliable. Every detail meets high standards and supports both dentists and laboratory professionals."
+    }
+  }
+}

@@ -2,7 +2,8 @@
 
 #contact {
   .contact {
-    padding: 5rem 5%;
+    padding-inline:  5%;
+    padding-block: 80px 200px;
     min-height: 60vh;
     h1 {
       font-size: 32px;
@@ -13,7 +14,7 @@
       font-weight: 600;
     }
     .map-side {
-      padding: 20px 30px;
+      padding:10px 20px;
       display: flex;
       justify-content: center;
       min-height: 330px;
@@ -34,7 +35,7 @@
   }
   @media (max-width:576px) {
     .contact {
-      padding: 1rem 5%;
+      padding-block: 30px;
       h1 {
         font-size: 22px;
         padding-bottom: 10px;

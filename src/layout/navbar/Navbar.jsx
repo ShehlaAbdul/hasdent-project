@@ -1,20 +1,32 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import NavLogo from '../../assets/images/NavLogo.webp';
+import React, { useEffect, useRef, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import NavLogo from "../../assets/images/NavLogo.webp";
 import { IoSearchOutline } from "react-icons/io5";
 import { HiBars3 } from "react-icons/hi2";
 import { LiaTimesSolid } from "react-icons/lia";
 import { HiMiniBars3BottomRight } from "react-icons/hi2";
 import { IoIosArrowDown } from "react-icons/io";
-
-
-
-import './Style.scss';
+import {
+  getCurrentLanguage,
+  addLanguageToPath,
+  removeLanguageFromPath,
+} from "../../utils/languageUtils";
+import { useTranslation } from "react-i18next";
+import axios from "axios";
+import "./Style.scss";
 
 export default function Navbar() {
+  const { t, i18n } = useTranslation();
+  const [isLanguageOpen, setIsLanguageOpen] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState("Az");
+  // const [lang, setLang] = useState("az");
   const [isOpen, setIsOpen] = useState(false);
-  const [lang, setLang] = useState("az");
-  
+
+  const navigate = useNavigate();
+  const languageDropdownRef = useRef(null);
+  const { pathname } = useLocation();
+  const currentLanguage = getCurrentLanguage(pathname);
+
   const options = [
     {
       value: "az",
@@ -133,9 +145,59 @@ export default function Navbar() {
       ],
     },
   ];
-  
+  const createLanguageAwarePath = (path) => {
+    return addLanguageToPath(path, currentLanguage);
+  };
+  const toggleLanguageDropdown = () => {
+    setIsLanguageOpen(!isLanguageOpen);
+  };
+  const handleLanguageSelect = (lang) => {
+    setIsLanguageOpen(false);
+
+    // Get current path without language prefix
+    const pathWithoutLang = removeLanguageFromPath(pathname);
+
+    // Create new path with selected language
+    const newPath = addLanguageToPath(pathWithoutLang, lang);
+
+    // Change i18n language
+    if (i18n && i18n.changeLanguage) {
+      i18n.changeLanguage(lang);
+    }
+
+    // Navigate to the new path
+    navigate(newPath);
+  };
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        languageDropdownRef.current &&
+        !languageDropdownRef.current.contains(event.target)
+      ) {
+        setIsLanguageOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
   const toggleSidebar = () => setIsOpen(!isOpen);
+   useEffect(() => {
+     // Update selected language display based on current URL language
+     setSelectedLanguage(
+       currentLanguage === "az"
+         ? "Az"
+         : currentLanguage === "en"
+         ? "En"
+         : currentLanguage === "ru"
+         ? "Ru"
+         : "Az"
+     );
+   }, [currentLanguage]);
   
+
   return (
     <>
       <nav className="custom-navbar navbar-expand-lg px-2  px-md-3 px-lg-1  d-flex align-items-center justify-content-between">
@@ -145,23 +207,26 @@ export default function Navbar() {
         >
           <img src={NavLogo} alt="Logo" className="nav-logo" />
         </Link>
+        {/* navbar links side */}
         <div className="mx-auto d-none d-lg-flex gap-2 align-items-center">
-          <Link to="/" className="nav-link">
-            Ana Səhifə
+          <Link to={createLanguageAwarePath("/")} className="nav-link">
+            {t("header.home")}
           </Link>
-          <Link to="/about" className="nav-link">
-            Haqqımızda
+          <Link to={createLanguageAwarePath("/about")} className="nav-link">
+            {t("header.aboutUs")}
           </Link>
 
-          <Link to="/services" className="nav-link">
-            Xidmətlər
+          <Link to={createLanguageAwarePath("/services")} className="nav-link">
+            {t("header.services")}
           </Link>
           {/* <div className="border position-relative  g-0 m-0 p-0 gap-0"> */}
-          <div className='productDiv d-flex align-items-center'>
-            <Link to="/products" className="nav-link d-flex  align-items-center gap-2">
-              <span>Məhsullar
-              </span>
-            <IoIosArrowDown/>
+          <div className="productDiv d-flex align-items-center">
+            <Link
+              to={createLanguageAwarePath("/products")}
+              className="nav-link d-flex  align-items-center gap-2"
+            >
+              <span>{t("header.products")}</span>
+              <IoIosArrowDown />
             </Link>
           </div>
           <div className="products-types  mt-3 position-absolute p-0 m-0 ">
@@ -183,20 +248,25 @@ export default function Navbar() {
             </div>
           </div>
           {/* </div> */}
-          <Link to="/news" className="nav-link">
-            Xəbərlər
+          <Link to={createLanguageAwarePath("/news")} className="nav-link">
+            {t("header.news")}
           </Link>
-          <Link to="/partners" className="nav-link">
-            Partnyorlar
+          <Link to={createLanguageAwarePath("/partners")} className="nav-link">
+            {t("header.partners")}
           </Link>
-          <Link to="/contact-us" className="nav-link">
-            Əlaqə
+          <Link
+            to={createLanguageAwarePath("/contact-us")}
+            className="nav-link"
+          >
+            {t("header.contact")}
           </Link>
         </div>
+        {/* search */}
         <div className="d-flex justify-content-end align-items-center gap-0">
           <div className="d-none d-lg-block">
             <IoSearchOutline size={20} className="text-dark" />
           </div>
+          {/* language dropdrown  */}
           <div className="language-dropdown">
             <button
               className="btn btn-secondary dropdown-toggle"
@@ -204,18 +274,19 @@ export default function Navbar() {
               id="dropdownMenuButton"
               data-bs-toggle="dropdown"
               aria-expanded="false"
+              onClick={toggleLanguageDropdown}
             >
-              {options.find((o) => o.value === lang).label}
+              {selectedLanguage}
             </button>
             <ul
-              className="dropdown-menu dropdown-menu"
+              className={`dropdown-menu ${isLanguageOpen ? "show" : ""}`}
               aria-labelledby="dropdownMenuButton"
             >
               {options.map((opt) => (
                 <li key={opt.value}>
                   <button
                     className="dropdown-item"
-                    onClick={() => setLang(opt.value)}
+                    onClick={() => handleLanguageSelect(opt.value)}
                   >
                     {opt.label}
                   </button>
@@ -223,6 +294,7 @@ export default function Navbar() {
               ))}
             </ul>
           </div>
+
           <div className="d-block d-lg-none  " onClick={toggleSidebar}>
             <HiBars3 size={20} className="text-dark" />
           </div>
@@ -244,27 +316,39 @@ export default function Navbar() {
           </div>
 
           <div className="w-100 align-items-start  ">
-            <Link to="/" className="nav-link">
-              Ana Səhifə
+            <Link to={createLanguageAwarePath("/")} className="nav-link">
+              {t("header.home")}
             </Link>
-            <Link to="/about" className="nav-link">
-              Haqqımızda
+            <Link to={createLanguageAwarePath("/about")} className="nav-link">
+              {t("header.aboutUs")}
             </Link>
 
-            <Link to="/services" className="nav-link">
-              Xidmətlər
+            <Link
+              to={createLanguageAwarePath("/services")}
+              className="nav-link"
+            >
+              {t("header.services")}
             </Link>
-            <Link to="/products" className="nav-link">
-              Məhsullar
+            <Link
+              to={createLanguageAwarePath("/products")}
+              className="nav-link"
+            >
+              {t("header.products")}
             </Link>
-            <Link to="/news" className="nav-link">
-              Xəbərlər
+            <Link to={createLanguageAwarePath("/news")} className="nav-link">
+              {t("header.news")}
             </Link>
-            <Link to="/partners" className="nav-link">
-              Partnyorlar
+            <Link
+              to={createLanguageAwarePath("/partners")}
+              className="nav-link"
+            >
+              {t("header.partners")}
             </Link>
-            <Link to="/contact" className="nav-link">
-              Əlaqə
+            <Link
+              to={createLanguageAwarePath("/contact-us")}
+              className="nav-link"
+            >
+              {t("header.contact")}
             </Link>
           </div>
         </div>

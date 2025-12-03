@@ -17,13 +17,13 @@
         .img-side{
             min-height: 200px;
             height: auto;
+            margin-block:  auto;
             padding:0px  30px 0 0 ;
             img{
                 width: 100%;  
-                box-shadow: 2px 10px 20px #1814432B,2px 4px 10px #0000000A;
-                height: 100%;
+                box-shadow: 2px 1px 20px #1814432B,2px 4px 10px #0000000A;
+                height: 95%;
                 object-fit: cover;
-                
             }
           
         }

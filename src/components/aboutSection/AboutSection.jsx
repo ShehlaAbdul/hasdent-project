@@ -5,7 +5,22 @@ import Vector from "../../assets/images/Vector2.webp";
 import SectionHead from "../sectionHead/SectionHead";
 import ReadMore from "../readMore/ReadMore";
 
+import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import {
+  getCurrentLanguage,
+  addLanguageToPath,
+  removeLanguageFromPath,
+} from "../../utils/languageUtils";
+
 export default function AboutSection() {
+      const { t, i18n } = useTranslation();
+      const { pathname } = useLocation();
+      // Get current language from URL BAXXXXXXXXXXXXXXXX BUNA
+      const currentLanguage = getCurrentLanguage(pathname);
+      const createLanguageAwarePath = (path) => {
+        return addLanguageToPath(path, currentLanguage);
+      };
   return (
     <section id="about-sec">
       <div
@@ -24,20 +39,11 @@ export default function AboutSection() {
           data-aos="fade-left"
           // data-aos-anchor-placement="top-center"
         >
-          <SectionHead title={"Haqqımızda"} />
-          <h1 className="about-title">Uğurun əsasında təcrübə və keyfiyyət</h1>
-          <p>
-            HASDENT MMC-nin hekayəsi 1996-cı ildən başlayır. Təsisçimiz Namiq
-            Həsənov stomatoloji məhsullar sahəsində uzun illərin təcrübəsi ilə
-            bu sektorda önəmli boşluğu doldurmağı hədəfləmişdir. Şirkətimiz
-            illər boyu Stomart adı altında fəaliyyət göstərmiş, 2015-ci ildən
-            isə daha geniş vizyonla HASDENT olaraq yoluna davam edir. Bu
-            dəyişiklik sadəcə bir ad yenilənməsi deyil, həm də bazarın
-            ehtiyaclarına uyğun olaraq məhsul çeşidini artırmaq və xidmət
-            keyfiyyətini yüksəltmək öhdəliyimizdir.
-          </p>
+          <SectionHead title={t("header.aboutUs")} />
+          <h1 className="about-title">{t("home.aboutSection.title")}</h1>
+          <p>{t("home.aboutSection.subtitle")}</p>
           <div>
-            <ReadMore title={"Məhsullara bax "} />
+            <ReadMore title={t("title.readMore")} />
           </div>
         </div>
       </div>

@@ -3,6 +3,8 @@ import './Style.scss';
 import ServicesImg from "../../assets/images/ServicesLayout.webp";
 import SectionHead from '../sectionHead/SectionHead';
 import Vector from "../../assets/images/Vector4.webp"
+import ReadMore from '../readMore/ReadMore';
+import { Link } from "react-router-dom";
 
 export default function ServicesAbout() {
   return (
@@ -10,7 +12,7 @@ export default function ServicesAbout() {
       <div className="vector">
         <img src={Vector} alt="" />
       </div>
-    
+
       <div
         className="services-about container-fluid  row  g-0 "
         data-aos-anchor-placement="top-center"
@@ -43,6 +45,11 @@ export default function ServicesAbout() {
             olaraq Azərbaycana gətirmək və peşəkarların işini asanlaşdırmaq üçün
             çalışacağıq. HASDENT ilə birgə, stomatologiyanın gələcəyini yaradın!
           </p>
+        </div>
+        <div className='pt-2 d-block d-lg-none'>
+          <Link>
+            <ReadMore title={"Məhsullara bax"} />
+          </Link>
         </div>
       </div>
     </section>

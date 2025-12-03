@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Style.scss";
 import Brends from "../../components/homeBrends/Brends";
 import HeroSection from "../../components/HeroSection/HeroSection";
@@ -12,6 +12,7 @@ import Brend3 from "../../assets/brands/brend3.webp";
 import Brend4 from "../../assets/brands/brend4.webp";
 import Brend5 from "../../assets/brands/brend5.webp";
 import Brend6 from "../../assets/brands/brend6.webp";
+import axios from "axios";
 
 export default function Partners() {
   const brands = [
@@ -40,6 +41,25 @@ export default function Partners() {
       img: Brend6,
     },
   ];
+  const [partners, setPartners] = useState([])
+   useEffect(() => {
+     axios
+       .get("https://manager.hasdent.az/api/news?page=1&limit=10") // <-- API URL
+       .then((res) => {
+         setNews(res.data.data);
+       })
+       .catch((err) => {
+         console.log("Error:", err);
+       })
+       .finally(() => {
+         setLoading(false);
+       });
+   }, []);
+  
+  if (loading) {
+    return <p className="text-center mt-5">Yüklənir...</p>;
+  }
+  
   return (
     <>
       <HeroSection page={"Partnyorlar"} />
@@ -73,7 +93,7 @@ export default function Partners() {
                 },
               }}
             >
-              {[...brands, ...brands].map((brand, index) => (
+              {[...partners, ...partners].map((brand, index) => (
                 <SwiperSlide key={index}>
                   <img src={brand.img} alt={`brand-${index}`} />
                 </SwiperSlide>
@@ -81,7 +101,7 @@ export default function Partners() {
             </Swiper>
           </div>
           <div className="brands-list-mobile d-block d-md-none">
-            {brands.map((brand) => (
+            {partners.map((brand) => (
               <div className="brand-item" key={brand.id}>
                 <img src={brand.img} alt={`brand-${brand.id}`} className="" />
               </div>

@@ -20,10 +20,23 @@ import RightArrow from "../../assets/icons/rightArrow.svg";
 import LeftArrow from "../../assets/icons/leftArrow.svg";
 import { MdArrowForwardIos } from "react-icons/md";
 import ReadMore from "../readMore/ReadMore";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import {
+  getCurrentLanguage,
+  addLanguageToPath,
+  removeLanguageFromPath,
+} from "../../utils/languageUtils";
 
 export default function Services() {
   const [width, setWidth] = useState(window.innerWidth);
+   const { t, i18n } = useTranslation();
+   const { pathname } = useLocation();
+   // Get current language from URL BAXXXXXXXXXXXXXXXX BUNA
+   const currentLanguage = getCurrentLanguage(pathname);
+   const createLanguageAwarePath = (path) => {
+     return addLanguageToPath(path, currentLanguage);
+   };
 
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
@@ -36,34 +49,32 @@ export default function Services() {
   const servicescard = [
     {
       id: 1,
-      title: "Ümumi Stomatologiya",
-      detail:
-        "Müalicə, restavrasiya və profilaktika, anesteziya üçün geniş çeşiddə materiallar.",
+      title: t("home.servicesSection.service1"),
+      detail: t("home.servicesSection.service1subtitle"),
       img: Servicescard1,
     },
     {
       id: 2,
-      title: "Ortodontologiya",
-      detail:
-        "Şəffaf elaynerlər – estetik və rahatlığı ön planda tutan müasir həllər.",
+      title: t("home.servicesSection.service2"),
+      detail: t("home.servicesSection.service2subtitle"),
       img: Servicescard2,
     },
     {
       id: 3,
-      title: "İmplantologiya",
-      detail: "Müasir implant sistemləri və aksesuarları.",
+      title: t("home.servicesSection.service3"),
+      detail: t("home.servicesSection.service3subtitle"),
       img: Servicescard3,
     },
     {
       id: 4,
-      title: "Üz-Çənə Cərrahiyyəsi",
-      detail: "Biomateriallar:membranlar, insan və heyvan mənşəli sümüklər",
+      title: t("home.servicesSection.service4"),
+      detail: t("home.servicesSection.service4subtitle"),
       img: Servicescard4,
     },
     {
       id: 5,
-      title: "Diş Laboratoriyaları",
-      detail: "Biomateriallar:membranlar, insan və heyvan mənşəli sümüklər",
+      title: t("home.servicesSection.service4"),
+      detail: t("home.servicesSection.service4subtitle"),
       img: Servicescard5,
     },
   ];
@@ -82,8 +93,8 @@ export default function Services() {
       <div className="services container-fluid  p-0 g-0 m-0 d-flex  flex-column gap-1 gap-md-2">
         <div className="d-flex w-100 justify-content-between  align-items-end g-0">
           <div className="d-flex flex-column gap-4">
-            <SectionHead title={"Xidmətlər"} />
-            <h1 className="services-head">Geniş Çeşid və Mükəmməl Xidmət</h1>
+            <SectionHead title={t("header.services")} />
+            <h1 className="services-head">{t("home.servicesSection.title")}</h1>
           </div>
           <div className="d-none d-md-flex align-items-end  gap-1  ">
             <img
@@ -116,7 +127,7 @@ export default function Services() {
                   </div>
                   {/* <hr /> */}
                   <Link to={"/services"} className="read-more">
-                    <span>Daha Ətraflı</span>
+                    <span>{t("title.readMore")}</span>
                     <span className="read-more-arrow">
                       <MdArrowForwardIos />
                     </span>
@@ -130,11 +141,11 @@ export default function Services() {
           to={"/services"}
           className="w-100 text-align-center d-flex justify-content-center mt-5"
         >
-          <ReadMore title={"Xidmətlər"} />
+          <ReadMore title={t("header.services")} />
         </Link>
       </div>
-        <div className="vector">
-          <img src={Vector} alt="" />
+      <div className="vector">
+        <img src={Vector} alt="" />
       </div>
     </section>
   );
