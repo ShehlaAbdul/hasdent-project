@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Style.scss";
 import Card1 from "../../assets/images/BestSellerCard.webp";
 import { IoIosArrowDown } from "react-icons/io";
 import { CiSearch } from "react-icons/ci";
+import ReadMore from "../readMore/ReadMore";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 
 export default function ProductsSec() {
+  const { id } = useParams()
+    const [product, setProduct] = useState(null);
   const products = [
     {
       id: 1,
@@ -67,101 +72,115 @@ export default function ProductsSec() {
     "Diş Laboratoriyası Materialları",
     "Ümumi Təchizat və Ləvazimatlar",
   ];
+  useEffect(() => {
+    axios
+      .get(`https://manager.hasdent.az/api/products/${id}`)
+      .then((res) => setProduct(res.data.data[0]))
+      .catch((err) => console.log(err));
+  }, [id]);
+
+  if (!product) return <p>Yüklənir...</p>;
+  
+
+  //  useEffect(() => {
+  //    const getProduct = async () => {
+  //      try {
+  //        const res = await axios.get(
+  //          `https://manager.hasdent.az/api/products/${id}` 
+  //        );
+  //        setProduct(res?.data?.data);
+  //      } catch (error) {
+  //        console.error("Error fetching product:", error);
+  //      }
+  //    };
+
+  //    getProduct();
+  //  }, [id]);
+  
+  // if (!product) return <p>Yüklənir...</p>;
+  
   return (
-    <div className="products-sec d-flex row">
+    <>
       <section id="products-sec">
-        <div className="products-sec container-fluid row p-0">
-          <div className="col-12 col-md-6 col-lg-3 d-flex flex-column gap-4">
-            <div className="categories-head d-flex align-items-center gap-2 border justify-content-between rounded-4 py-2 px-3">
-              <h4>Kategoriyalar</h4>
-              <IoIosArrowDown className="fs-3" />
-            </div>
-            <div className="categories border rounded-4 py-3 px-3">
-              <div className="content">
-                <div className="search border border-2 py-2 px-2 d-flex  align-items-center gap-2 rounded-3 ">
-                  <CiSearch className="fs-4" />
-                  <input
-                    type="text"
-                    name=""
-                    id=""
-                    placeholder="Axtarin"
-                    className="border-none outline-none"
-                  />
-                </div>
-                <ul className="categories-list list-unstyled">
-                  <li className="form-check d-flex gap-3">
-                    <input
-                      type="checkbox"
-                      id="men"
-                      name="item"
-                      class=""
-                    />
-                    <span>Hamısı </span>
-                  </li>
-                </ul>
+        <div className="products-sec">
+          <div className="img-side">
+            {/* <img src="/images/HomeContact.webp" alt="" /> */}
+            <img
+              src={`https://manager.hasdent.az/products/${product.image}`}
+              alt={product.title.az}
+            />  
+          </div>
+
+          <div className="text-side ">
+            <div className="head d-flex justify-content-between">
+              <h3>Name</h3>
+              <div className="d-none d-md-block">
+                <ReadMore title={"Katalogu gör"}></ReadMore>
               </div>
+            </div>
+            {/* {product.map((category, index) => (
+              <p>
+                {typeof category?.name === "object"
+                  ? category?.name?.[currentLanguage] || category?.name?.az
+                  : category?.name}
+              </p>
+              // <li key={index}>
+              //   <Link
+              //     to={createLanguageAwarePath(`/projects/${category?.id}`)}
+              //     onClick={() => setShowProjectsDropdown(false)}
+              //   >
+              //     {typeof category?.name === "object"
+              //       ? category?.name?.[currentLanguage] || category?.name?.az
+              //       : category?.name}
+              //   </Link>
+              // </li>
+            ))} */}
+            <p className="head-text p-0 ">
+              {" "}
+              Üstünlükləri: Niyə INNO İmplant? INNO İmplant Sistemi bir sıra
+              üstünlükləri ilə fərqlənir: • SLA-SH™ Səth Müalicəsi: İmplantın
+              səthi Sandblasted, Large-grit, Acid-etched, and
+              Super-Hydrophilised (Qumlanmış, İri-dənəli, Turşu ilə oyulmuş və
+              Super-Hidrofilləşdirilmiş) texnologiyası ilə işlənmişdir. Bu
+              müalicə sürətli və effektiv osseointeqrasiya (sümüyə birləşmə)
+              təmin edərək implantın uğur nisbətini artırır. • Yüksək İlkin
+              Sabitlik: Xüsusi dizayn edilmiş yivlər (dişlər) sayəsində, hətta
+              sümük keyfiyyəti zəif olan nahiyələrdə və ya çıxarılma sonrası
+              dərhal yerləşdirmə hallarında belə yüksək ilkin sabitlik əldə
+              olunur. Bu, müalicə müddətini qısaltmağa imkan verir. • Anatomik
+              Uyğunluq: İmplantın gövdəsinin konusvari və düz hissələri,
+              müxtəlif ağız boşluğu şərtlər
+            </p>
+            <p>
+              {" "}
+              Üstünlükləri: Niyə INNO İmplant? INNO İmplant Sistemi bir sıra
+              üstünlükləri ilə fərqlənir: • SLA-SH™ Səth Müalicəsi: İmplantın
+              səthi Sandblasted, Large-grit, Acid-etched, and
+              Super-Hydrophilised (Qumlanmış, İri-dənəli, Turşu ilə oyulmuş və
+              Super-Hidrofilləşdirilmiş) texnologiyası ilə işlənmişdir. Bu
+              müalicə sürətli və effektiv osseointeqrasiya (sümüyə birləşmə)
+              təmin edərək implantın uğur nisbətini artırır. • Yüksək İlkin
+              Sabitlik: Xüsusi dizayn edilmiş yivlər (dişlər) sayəsində, hətta
+              sümük keyfiyyəti zəif olan nahiyələrdə və ya çıxarılma sonrası
+              dərhal yerləşdirmə hallarında belə yüksək ilkin sabitlik əldə
+              olunur. Bu, müalicə müddətini qısaltmağa imkan verir. • Anatomik
+              Uyğunluq: İmplantın gövdəsinin konusvari və düz hissələri,
+              müxtəlif ağız boşluğu şərtlərinə ideal uyğunlaşma və yüklənməyə
+              müqavimət üçün nəzərdə tutulmuşdur. • Sadə və Sürətli Prosedur:
+              Təkmilləşdirilmiş dizayn cərrahi əməliyyatı sadələşdirir və
+              implantın yerləşdirilmə müddətini qısaldır. • Etibarlılıq və
+              Keyfiyyət Təsdiqi: Cowellmedi məhsulları USFDA, CE və ISO 13485
+              kimi beynəlxalq keyfiyyət sertifikatlarına malikdir, bu da onların
+              klinik təhlükəsizliyini və etibarlılığını təsdiqləyir. INNO
+              İmplant Sistemi ilə Cowellmedi həyat keyfiyyətinizi yaxşılaşdırmaq
+              üçün ağıllı və etibarlı bir seçim təklif edir.
+            </p>
+            <div className="d-block  d-md-none">
+              <ReadMore title={"Katalogu gör"}></ReadMore>
             </div>
           </div>
-          <div className="col-12 col-lg-8 border border-dark ">card</div>
         </div>
       </section>
-      {/* Sidebar */}
-      <div className="flex-shrinK-0 p-3 border-end col-12 col-md-3">
-        {/* Categories */}
-        <div className="mb-4">
-          <h6 className="mb-2">Categories</h6>
-          <input
-            type="text"
-            className="form-control form-control-sm mb-2"
-            placeholder="Search category"
-          />
-          <ul className="list-unstyled mb-0">
-            {[
-              "TShirts",
-              "Jackets",
-              "Sweaters",
-              "Crossbody Bags",
-              "Hair Tie",
-            ].map((cat) => (
-              <li className="form-check" key={cat}>
-                <input className="form-check-input" type="checkbox" id={cat} />
-                <label className="form-check-label" htmlFor={cat}>
-                  {cat}
-                </label>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
-      {/* Products */}
-      <div className="flex-grow-1 p-3 col-12 col-md-9">
-        {/* <div className="d-flex flex-wrap gap-2 mt-4">
-          {["Jackets", "Tommy Hilfiger", "Orange", "Zara", "Dresses"].map(
-            (tag) => (
-              <button
-                key={tag}
-                type="button"
-                className="btn btn-outline-secondary btn-sm"
-              >
-                {tag}
-              </button>
-            )
-          )}
-        </div> */}
-
-        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-3 mt-3">
-          {products.map((product) => (
-            <div className="bestseller-card">
-              <img src={product.img} alt={`product-${product.id}`} />
-              <div className="content-side">
-                <h5>{product.title}</h5>
-                <p>{product.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
+    </>
   );
 }

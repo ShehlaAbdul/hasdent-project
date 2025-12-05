@@ -15,15 +15,13 @@ import "aos/dist/aos.css";
 import { useEffect } from "react";
 import LanguageRedirect from "./components/languageRedirect/LanguageRedirect.jsx";
 
-
 function App() {
   useEffect(() => {
     AOS.init({
-      duration: 1000, 
-      once: false, 
-      
+      duration: 1000,
+      once: false,
     });
-     AOS.refreshHard(); 
+    AOS.refreshHard();
   }, []);
 
   return (
@@ -37,7 +35,7 @@ function App() {
               <Route path="/services" element={<ServicesPage />} />
               <Route path="/partners" element={<Partners />} />
               <Route path="/contact-us" element={<ContactPage />} />
-              <Route path="/products-page" element={<ProductsPage />} />
+              <Route path="/products/:id" element={<ProductsPage />} />
               <Route path="/news/:id" element={<NewsDetail />} />
               <Route path="/news" element={<NewsPage />} />
               {/*   English */}
@@ -46,7 +44,7 @@ function App() {
               <Route path="/en/services" element={<ServicesPage />} />
               <Route path="/en/partners" element={<Partners />} />
               <Route path="/en/contact-us" element={<ContactPage />} />
-              <Route path="/en/products-page" element={<ProductsPage />} />
+              <Route path="/en/categories/:id" element={<ProductsPage />} />
               <Route path="/en/news/:id" element={<NewsDetail />} />
               <Route path="/en/news" element={<NewsPage />} />
               {/*   Rus */}
@@ -55,7 +53,7 @@ function App() {
               <Route path="/ru/services" element={<ServicesPage />} />
               <Route path="/ru/partners" element={<Partners />} />
               <Route path="/ru/contact-us" element={<ContactPage />} />
-              <Route path="/ru/products-page" element={<ProductsPage />} />
+              <Route path="/ru/products/:id" element={<ProductsPage />} />
               <Route path="/ru/news/:id" element={<NewsDetail />} />
               <Route path="/ru/news" element={<NewsPage />} />
               {/* <Route path="*" element={<NotFoundPage />} /> */}
@@ -67,4 +65,4 @@ function App() {
   );
 }
 
-export default App
+export default App;

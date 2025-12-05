@@ -21,7 +21,7 @@ export default function Navbar() {
   const [selectedLanguage, setSelectedLanguage] = useState("Az");
   // const [lang, setLang] = useState("az");
   const [isOpen, setIsOpen] = useState(false);
-
+const [categories, setCategories] = useState([])
   const navigate = useNavigate();
   const languageDropdownRef = useRef(null);
   const { pathname } = useLocation();
@@ -196,8 +196,23 @@ export default function Navbar() {
          : "Az"
      );
    }, [currentLanguage]);
+  // categories fetch
+  useEffect(() => {
+    const getCategories  = async () => {
+      try {
+        const res = await axios.get(
+          'https://manager.hasdent.az/api/allcategories'
+        )
+        setCategories(res?.data?.data);
+        // console.log(getCategories());
+      } catch (error) {
+        console.error("Error fetching projects:", error);
+      }
+    }
+    getCategories();
   
-
+  }, [])
+  
   return (
     <>
       <nav className="custom-navbar navbar-expand-lg px-2  px-md-3 px-lg-1  d-flex align-items-center justify-content-between">
@@ -222,17 +237,17 @@ export default function Navbar() {
           {/* <div className="border position-relative  g-0 m-0 p-0 gap-0"> */}
           <div className="productDiv d-flex align-items-center">
             <Link
-              to={createLanguageAwarePath("/products")}
+              // to={createLanguageAwarePath("/products")}
               className="nav-link d-flex  align-items-center gap-2"
             >
               <span>{t("header.products")}</span>
               <IoIosArrowDown />
             </Link>
           </div>
-          <div className="products-types  mt-3 position-absolute p-0 m-0 ">
+          <div className="products-types  mt-3 position-absolute p-0 m-0">
             <div className="products-types-container mt-3 px-5">
               <ul className=" p-0 d-flex gap-2 row">
-                {products.map(({ name, types }, index) => (
+                {/* {products.map(({ name, types }, index) => (
                   <li key={index} className=" d-flex flex-column col">
                     <h5>{name}</h5>
                     <div className="d-flex flex-column gap-2">
@@ -243,7 +258,26 @@ export default function Navbar() {
                       ))}
                     </div>
                   </li>
-                ))}
+                ))} */}
+                {categories
+                  ?.slice()
+                  .reverse()
+                  .map((category, index) => (
+                    <li key={index} className=" d-flex flex-column col">
+                      <h5>
+                        {category.name?.[currentLanguage] || category.name?.az}
+                      </h5>
+                      <Link to={createLanguageAwarePath(`products/${category?.id}`)}>
+                        <div className="d-flex flex-column gap-2">
+                          {category.subcategories?.map((sub) => (
+                            <p className=" p-0 m-0" key={sub.id}>
+                              {sub.name?.[currentLanguage] || sub.name?.az}
+                            </p>
+                          ))}
+                        </div>
+                      </Link>
+                    </li>
+                  ))}
               </ul>
             </div>
           </div>

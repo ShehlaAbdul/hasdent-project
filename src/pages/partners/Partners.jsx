@@ -41,12 +41,13 @@ export default function Partners() {
       img: Brend6,
     },
   ];
+  const [loading, setLoading] = useState(true)
   const [partners, setPartners] = useState([])
    useEffect(() => {
      axios
-       .get("https://manager.hasdent.az/api/news?page=1&limit=10") // <-- API URL
+       .get("https://manager.hasdent.az/api/partners") // <-- API URL
        .then((res) => {
-         setNews(res.data.data);
+         setPartners(res.data.data);
        })
        .catch((err) => {
          console.log("Error:", err);
@@ -95,7 +96,10 @@ export default function Partners() {
             >
               {[...partners, ...partners].map((brand, index) => (
                 <SwiperSlide key={index}>
-                  <img src={brand.img} alt={`brand-${index}`} />
+                  <img
+                    src={`https://manager.hasdent.az${brand.logo}`}
+                    alt={`brand-${index}`}
+                  />
                 </SwiperSlide>
               ))}
             </Swiper>

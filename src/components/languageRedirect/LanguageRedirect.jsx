@@ -1,43 +1,50 @@
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import { getCurrentLanguage } from "../../utils/languageUtils";
+import { useLocation, useNavigate } from "react-router-dom";
+import {
+  getCurrentLanguage,
+  addLanguageToPath,
+} from "../../utils/languageUtils";
 import { useTranslation } from "react-i18next";
 
 const LanguageRedirect = ({ children }) => {
   const location = useLocation();
+  const navigate = useNavigate();
   const { i18n } = useTranslation();
 
   useEffect(() => {
     const currentLang = getCurrentLanguage(location.pathname);
 
-    if (i18n && i18n.changeLanguage && i18n.language !== currentLang) {
-      if (i18n.isInitialized) {
+    const handleLanguageChange = async () => {
+      if (i18n.language !== currentLang) {
         try {
-          i18n.changeLanguage(currentLang).catch((err) => {
-            console.error("Failed to change language:", err);
-          });
+          await i18n.changeLanguage(currentLang);
+
+          if (
+            !location.pathname.startsWith(`/${currentLang}`) &&
+            currentLang !== "az"
+          ) {
+            const newPath = addLanguageToPath(location.pathname, currentLang);
+            navigate(newPath, { replace: true });
+          }
         } catch (err) {
           console.error("Error changing language:", err);
         }
-      } else {
-        // Wait for i18n to be ready
-        const checkReady = () => {
-          if (i18n.isInitialized) {
-            try {
-              i18n.changeLanguage(currentLang).catch((err) => {
-                console.error("Failed to change language:", err);
-              });
-            } catch (err) {
-              console.error("Error changing language:", err);
-            }
-          } else {
-            setTimeout(checkReady, 100);
-          }
-        };
-        checkReady();
       }
+    };
+
+    if (i18n.isInitialized) {
+      handleLanguageChange();
+    } else {
+      const checkReady = setInterval(() => {
+        if (i18n.isInitialized) {
+          handleLanguageChange();
+          clearInterval(checkReady);
+        }
+      }, 100);
+
+      return () => clearInterval(checkReady);
     }
-  }, [location.pathname, i18n]);
+  }, [location.pathname, i18n, navigate]);
 
   return children;
 };
