@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useRef} from "react";
 import "./Style.scss";
 import Brends from "../../components/homeBrends/Brends";
 import HeroSection from "../../components/HeroSection/HeroSection";
@@ -13,6 +13,13 @@ import Brend4 from "../../assets/brands/brend4.webp";
 import Brend5 from "../../assets/brands/brend5.webp";
 import Brend6 from "../../assets/brands/brend6.webp";
 import axios from "axios";
+import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import {
+  getCurrentLanguage,
+  addLanguageToPath,
+  removeLanguageFromPath,
+} from "../../utils/languageUtils";
 
 export default function Partners() {
   const brands = [
@@ -43,6 +50,22 @@ export default function Partners() {
   ];
   const [loading, setLoading] = useState(true)
   const [partners, setPartners] = useState([])
+    const [width, setWidth] = useState(window.innerWidth);
+    const { t, i18n } = useTranslation();
+    const { pathname } = useLocation();
+    // Get current language from URL BAXXXXXXXXXXXXXXXX BUNA
+    const currentLanguage = getCurrentLanguage(pathname);
+    const createLanguageAwarePath = (path) => {
+      return addLanguageToPath(path, currentLanguage);
+    };
+
+    useEffect(() => {
+      const handleResize = () => setWidth(window.innerWidth);
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    const sliderRef = useRef(null);
    useEffect(() => {
      axios
        .get("https://manager.hasdent.az/api/partners") // <-- API URL
@@ -63,7 +86,7 @@ export default function Partners() {
   
   return (
     <>
-      <HeroSection page={"Partnyorlar"} />
+      <HeroSection page={t("header.partners")} />
       <section id="partners">
         <div className="brands-container ">
           <div className="brands-list-desktop d-none d-md-block">

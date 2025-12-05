@@ -10,7 +10,7 @@
     overflow: hidden;
     border-radius: 8px;
     img{
-        object-fit: cover;
+        object-fit: contain;
         object-position: center center;
     }
   }

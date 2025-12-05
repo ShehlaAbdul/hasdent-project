@@ -1,12 +1,35 @@
-import React from 'react';
-import './Style.scss';
+import "./Style.scss";
 import ServicesImg from "../../assets/images/ServicesLayout.webp";
-import SectionHead from '../sectionHead/SectionHead';
-import Vector from "../../assets/images/Vector4.webp"
-import ReadMore from '../readMore/ReadMore';
-import { Link } from "react-router-dom";
+import SectionHead from "../sectionHead/SectionHead";
+import Vector from "../../assets/images/Vector4.webp";
+import ReadMore from "../readMore/ReadMore";
+import  { useEffect, useRef, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import {
+  getCurrentLanguage,
+  addLanguageToPath,
+  removeLanguageFromPath,
+} from "../../utils/languageUtils";
 
 export default function ServicesAbout() {
+   const [width, setWidth] = useState(window.innerWidth);
+  const { t, i18n } = useTranslation();
+  const { pathname } = useLocation();
+  // Get current language from URL BAXXXXXXXXXXXXXXXX BUNA
+  const currentLanguage = getCurrentLanguage(pathname);
+  const createLanguageAwarePath = (path) => {
+    return addLanguageToPath(path, currentLanguage);
+  };
+
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const sliderRef = useRef(null);
+
   return (
     <section id="services-about">
       <div className="vector">
@@ -30,23 +53,10 @@ export default function ServicesAbout() {
           data-aos="fade-left"
         >
           <SectionHead title={"Xidmətlər"} />
-          <h1>Geniş Çeşid və Mükəmməl Xidmət</h1>
-          <p>
-            HASDENT olaraq, bizim əsas məqsədimiz stomatologiya sahəsində
-            çalışan peşəkarları, stomatoloji klinikaları və laboratoriyaları ən
-            yüksək standartlara cavab verən məhsullarla təmin etməkdir. Məhsul
-            portfelimiz genişdir və peşəkar stomatologiyanın bütün əsas
-            sahələrini əhatə edir. Bizim üçün keyfiyyət təkcə məhsulun özü
-            deyil, həm də təqdim etdiyimiz xidmətdir. Hər bir müştəri ilə fərdi
-            işləyir, onların ehtiyaclarını anlamağa çalışır və ən doğru məhsulu
-            seçmələrinə kömək edirik. HASDENT sadəcə bir təchizatçı deyil, sizin
-            inkişafınızda maraqlı olan etibarlı bir tərəfdaşdır. Gələcəkdə də
-            stomatologiya sahəsinin inkişafına töhfə vermək, yenilikləri ilk
-            olaraq Azərbaycana gətirmək və peşəkarların işini asanlaşdırmaq üçün
-            çalışacağıq. HASDENT ilə birgə, stomatologiyanın gələcəyini yaradın!
-          </p>
+          <h1>{t("servicesPage.title")}</h1>
+          <p>{t("servicesPage.text")}</p>
         </div>
-        <div className='pt-2 d-block d-lg-none'>
+        <div className="pt-2 d-block d-lg-none">
           <Link>
             <ReadMore title={"Məhsullara bax"} />
           </Link>

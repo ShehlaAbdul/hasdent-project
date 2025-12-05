@@ -46,7 +46,7 @@ export default function NewsPage() {
 
   useEffect(() => {
      axios
-       .get("https://manager.hasdent.az/api/news?page=1&limit=10") // <-- API URL
+       .get("https://manager.hasdent.az/api/news") // <-- API URL
        .then((res) => {
          setNews(res.data.data);
        })
@@ -69,21 +69,17 @@ export default function NewsPage() {
       <HeroSection page={"Xəbərlər"} />
       <section id="news-sec" className="container-fluid">
         <div className="news-sec row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-4 ">
-         
           {news.map((card) => (
-           
             <NewsCard
               key={card.id}
               id={card.id}
-              img={`${"https://manager.hasdent.az/api/news"}${item.image}`}
+              img={`https://manager.hasdent.az${card.image}`}
               title={card.title.az}
               date={"09.04.25"}
-              desc={item.shortDescription.az}
+              desc={card.shortDescription.az}
             />
-            
           ))}
         </div>
-        
       </section>
     </>
   );

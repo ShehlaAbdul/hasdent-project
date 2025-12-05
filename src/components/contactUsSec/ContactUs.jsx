@@ -33,7 +33,7 @@ export default function ContactUs() {
             <h1>{t("home.contactUsSec.title")} </h1>
             <p>{t("home.contactUsSec.text")}</p>
             <Link to={"contact-us"}>
-              <ReadMore title={"Əlaqə"} />
+              <ReadMore title={t("footer.contactUs")} />
             </Link>
           </div>
         </div>

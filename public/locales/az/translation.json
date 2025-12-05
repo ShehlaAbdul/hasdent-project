@@ -23,7 +23,16 @@
     "contactUs":"Əlaqə",
     "loc":"Ünvan:",
     "locName":"Adil Məmmədov 11 , Binəqədi ray, Bakı Ş., Azərbaycan",
-    "phone":"Telefon"
+    "phone":"Telefon",
+    "categories": {
+      "category1": "İmplantologiya",
+      "category2": "Ortodontiya",
+      "category3": "Üz-Çənə Cərrahiyyəsi",
+      "category4": "Terapevtik Stomatologiya",
+      "category5": "Diş Laboratoriyası Materialları",
+      "category6": "Ümumi Təchizat və Ləvazimatlar"
+  }
+    
   },
 
   "home": {
@@ -82,6 +91,14 @@
       "service5":"Diş Laboratoriyaları",
       "text5":"Diş texnikləri üçün nəzərdə tutulmuş materiallar və avadanlıqlar, laboratoriya işlərinin keyfiyyətini və dəqiqliyini artırmaq məqsədilə seçilmişdir. Bizim təqdim etdiyimiz məhsullar sayəsində protezlərin hazırlanması, bərpa və digər texniki proseslər daha sürətli, dəqiq və etibarlı olur. Hər bir detal yüksək standartlara cavab verir və stomatoloqlarla yanaşı laboratoriya mütəxəssislərinin də işini asanlaşdırır."
     }
+  },
+  "contactPage":{
+    "title":"Əlaqə Vasitələri",
+    "mail":"E-mail ünvanı",
+    "phone":"Telefon",
+    "location":"Ünvan",
+    "locName":"Adil Məmmədov 11 , Binəqədi ray, Bakı Ş., Azərbaycan"
+
   }
 
 

@@ -5,18 +5,26 @@ export const DEFAULT_LANGUAGE = "az";
 
 export const getLanguageFromPath = (pathname) => {
   const segments = pathname.split("/").filter(Boolean);
-  const firstSegment = segments[0];
 
-  if (SUPPORTED_LANGUAGES.includes(firstSegment)) {
-    return {
-      language: firstSegment,
-      pathWithoutLang: "/" + segments.slice(1).join("/"),
-    };
+  // Remove all language segments from the beginning
+  let cleanSegments = [...segments];
+  while (
+    cleanSegments.length > 0 &&
+    SUPPORTED_LANGUAGES.includes(cleanSegments[0])
+  ) {
+    cleanSegments.shift();
   }
 
+  // Get the first valid language segment (should be the first one)
+  const firstSegment = segments[0];
+  const language = SUPPORTED_LANGUAGES.includes(firstSegment)
+    ? firstSegment
+    : DEFAULT_LANGUAGE;
+
   return {
-    language: DEFAULT_LANGUAGE,
-    pathWithoutLang: pathname,
+    language: language,
+    pathWithoutLang:
+      cleanSegments.length > 0 ? "/" + cleanSegments.join("/") : "/",
   };
 };
 export const addLanguageToPath = (path, language) => {

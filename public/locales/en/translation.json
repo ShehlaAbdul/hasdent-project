@@ -23,8 +23,15 @@
     "contactUs": "Contact",
     "loc": "Address:",
     "locName": "Adil Mammadov 11, Binagadi District, Baku, Azerbaijan",
-    "phone": "Phone"
-  },
+    "phone": "Phone",
+    "categories":{
+      "category1": "Implantology",
+      "category2": "Orthodontics",
+      "category3": "Oral and Maxillofacial Surgery",
+      "category4": "Therapeutic Dentistry",
+      "category5": "Dental Laboratory Materials",
+      "category6": "General Supplies and Accessories"
+    }  },
 
   "home": {
     "heroSection": {
@@ -82,5 +89,12 @@
       "service5": "Dental Laboratories",
       "text5": "Materials and equipment designed for dental technicians are carefully selected to enhance the quality and precision of laboratory work. With our products, processes such as prosthetic fabrication, restoration, and other technical operations become faster, more precise, and more reliable. Every detail meets high standards and supports both dentists and laboratory professionals."
     }
+  },
+  "contactPage": {
+    "title": "Contact Information",
+    "mail": "E-mail address",
+    "phone": "Phone",
+    "location": "Address",
+    "locName": "Adil Mammadov 11, Binagadi district, Baku, Azerbaijan"
   }
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Style.scss";
 import HeroSection from "../../components/HeroSection/HeroSection.jsx";
 import NewsImg from "../../assets/images/WhyAreWe.webp";
@@ -6,9 +6,11 @@ import NewsCard from "../../components/newsCard/NewsCard.jsx";
 import Img1 from "../../assets/images/BestSellerCard.webp";
 
 import { useParams } from "react-router-dom";
+import axios from "axios";
 
 export default function NewsDetail() {
   const { id } = useParams();
+   const currentLanguage = "az";
   const newsdetail = [
     {
       id: 1,
@@ -38,12 +40,36 @@ export default function NewsDetail() {
         "Vero accusantium veritatis rem delectus! Beatae nobis ad laborum consequuntur!",
     },
   ];
-  const detailCard = newsdetail.find((card) => card.id === Number(id));
+  // const detailCard = newsdetail.find((card) => card.id === Number(id));
 
-  if (!detailCard) {
+  // if (!detailCard) {
+  //   return (
+  //     <section className="container-fluid py-5">
+  //       <h2>Xeber Tapilmadi</h2>
+  //     </section>
+  //   );
+  // }
+
+  const [newsDetail, setNewsDetail] = useState(null);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    axios
+      .get(`https://manager.hasdent.az/api/news/${id}`)
+      .then((res) => {
+        setNewsDetail(res.data.data);
+      })
+      .catch((err) => console.log("Error fetching news detail:", err))
+      .finally(() => setLoading(false));
+  }, [id]);
+
+  if (loading) {
+    return <p className="text-center mt-5">Yüklənir...</p>;
+  }
+
+  if (!newsDetail) {
     return (
       <section className="container-fluid py-5">
-        <h2>Xeber Tapilmadi</h2>
+        <h2>Xəbər Tapılmadı</h2>
       </section>
     );
   }
@@ -53,12 +79,33 @@ export default function NewsDetail() {
       <section id="news-detail">
         <div className="news-detail container-fluid ">
           <div className="img-side">
-            <img src={detailCard.img} alt="" />
+            <img
+              src={`https://manager.hasdent.az${newsDetail.image}`}
+
+              // alt={newsDetail.title}
+            />
           </div>
+          {/* <div className="detail-side d-flex flex-column gap-3">
+            <span className="date">
+              {newsDetail.createdAt?.slice(0, 10)}
+              {new Date(newsDetail.createdAt).toLocaleDateString("az-AZ")}
+            </span>
+            
+            <h2 className="">{newsDetail.title.az}</h2>
+            <p className="detail">{newsDetail.description.az}</p> 
+          </div> */}
           <div className="detail-side d-flex flex-column gap-3">
-            <span className="date">{detailCard.date}</span>
-            <h2 className="">{detailCard.title}</h2>
-            <p className="detail">{detailCard.detail}</p>
+            <span className="date">
+              {newsDetail.createdAt?.slice(0, 10)}
+              {/* {new Date(newsDetail.createdAt).toLocaleDateString("az-AZ")} */}
+            </span>
+            <h2 className="">
+              {" "}
+              {newsDetail?.title?.[currentLanguage] || newsDetail?.title?.az}
+            </h2>
+            <p className="detail">
+              {newsDetail?.description?.[currentLanguage] || newsDetail?.description?.az}
+            </p>
           </div>
         </div>
       </section>

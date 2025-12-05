@@ -10,7 +10,6 @@ i18n
   .use(backend)
   .use(initReactI18next)
   .init({
-    lng: "az",
     fallbackLng: "az",
     supportedLngs: langs,
     debug: false,
@@ -18,9 +17,10 @@ i18n
       escapeValue: false,
     },
     detection: {
-      order: ["path", "navigator"],
+      order: ["path", "localStorage", "navigator"],
       lookupFromPathIndex: 0,
       checkWhitelist: true,
+      caches:["localStorage"]
     },
     backend: {
       loadPath: "/locales/{{lng}}/translation.json",
@@ -30,12 +30,12 @@ i18n
     },
   });
 
-i18n.on("languageChanged", (lng) => {
-  const currentPath = window.location.pathname;
-  if (!currentPath.startsWith(`/${lng}`) && lng !== "az") {
-    const newPath = currentPath === "/" ? `/${lng}` : `/${lng}${currentPath}`;
-    window.history.replaceState({}, "", newPath);
-  }
-});
+// i18n.on("languageChanged", (lng) => {
+//   const currentPath = window.location.pathname;
+//   if (!currentPath.startsWith(`/${lng}`) && lng !== "az") {
+//     const newPath = currentPath === "/" ? `/${lng}` : `/${lng}${currentPath}`;
+//     window.history.replaceState({}, "", newPath);
+//   }
+// });
 
 export default i18n;

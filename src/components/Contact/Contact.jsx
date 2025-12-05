@@ -3,22 +3,46 @@ import "./Style.scss";
 import { MdOutlineEmail } from "react-icons/md";
 import { FiPhone } from "react-icons/fi";
 import { GrLocation } from "react-icons/gr";
+import { useEffect, useRef, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import {
+  getCurrentLanguage,
+  addLanguageToPath,
+  removeLanguageFromPath,
+} from "../../utils/languageUtils";
 
 
 
 export default function Contact() {
+   const [width, setWidth] = useState(window.innerWidth);
+   const { t, i18n } = useTranslation();
+   const { pathname } = useLocation();
+   // Get current language from URL BAXXXXXXXXXXXXXXXX BUNA
+   const currentLanguage = getCurrentLanguage(pathname);
+   const createLanguageAwarePath = (path) => {
+     return addLanguageToPath(path, currentLanguage);
+   };
+
+   useEffect(() => {
+     const handleResize = () => setWidth(window.innerWidth);
+     window.addEventListener("resize", handleResize);
+     return () => window.removeEventListener("resize", handleResize);
+   }, []);
+
+   const sliderRef = useRef(null);
   return (
     <section id="contact">
       <div className="contact container-fluid row g-0">
         <div className="title-side col-12 col-lg-5 ">
-          <h1>Əlaqə vasitələri</h1>
+          <h1>{t("contactPage.title")}</h1>
           <ul className="d-flex  p-0 flex-column gap-3  ">
             <li className="d-flex align-items-center gap-2 ">
               <span className="fs-3">
                 <MdOutlineEmail />
               </span>
               <div className="d-flex flex-column ">
-                <h5>E-mail ünvanı</h5>
+                <h5>{t("contactPage.mail")}</h5>
                 <span>info@hasdent.az</span>
               </div>
             </li>
@@ -27,7 +51,7 @@ export default function Contact() {
                 <FiPhone />
               </span>
               <div className="d-flex flex-column">
-                <h5>Telefon</h5>
+                <h5>{t("contactPage.phone")}</h5>
                 <span>+994124479797</span>
                 <span>+994553591400</span>
               </div>
@@ -37,10 +61,8 @@ export default function Contact() {
                 <GrLocation />
               </span>
               <div className="d-flex flex-column">
-                <h5>Ünvan</h5>
-                <span>
-                  Adil Məmmədov 11 , Binəqədi ray, Bakı Ş., Azərbaycan
-                </span>
+                <h5>{t("contactPage.location")}</h5>
+                <span>{t("contactPage.locName")} </span>
               </div>
             </li>
           </ul>
