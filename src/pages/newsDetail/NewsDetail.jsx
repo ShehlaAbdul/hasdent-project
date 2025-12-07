@@ -4,6 +4,8 @@ import HeroSection from "../../components/HeroSection/HeroSection.jsx";
 import NewsImg from "../../assets/images/WhyAreWe.webp";
 import NewsCard from "../../components/newsCard/NewsCard.jsx";
 import Img1 from "../../assets/images/BestSellerCard.webp";
+import  "react-loading-skeleton/dist/skeleton.css";
+import Skeleton from "react-loading-skeleton";
 
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -59,12 +61,14 @@ export default function NewsDetail() {
         setNewsDetail(res.data.data);
       })
       .catch((err) => console.log("Error fetching news detail:", err))
-      .finally(() => setLoading(false));
+      .finally(() => {
+        setTimeout(() => {
+          setLoading(false);
+        }, 1000);
+      });
   }, [id]);
 
-  if (loading) {
-    return <p className="text-center mt-5">Yüklənir...</p>;
-  }
+
 
   if (!newsDetail) {
     return (
@@ -77,15 +81,36 @@ export default function NewsDetail() {
     <>
       <HeroSection page={"Xəbərlər"} />
       <section id="news-detail">
-        <div className="news-detail container-fluid ">
-          <div className="img-side">
-            <img
-              src={`https://manager.hasdent.az${newsDetail.image}`}
+        {loading ? (
+          <>
+            {/* Skeleton Image */}
+            <Skeleton
+              height={400}
+              width={"90%"}
+              className="mb-4 mx-auto"
+              style={{ borderRadius: "12px" }}
+            />
+
+            {/* Skeleton Date */}
+            <Skeleton height={20} width={150} className="mb-3" />
+
+            {/* Skeleton Title */}
+            <Skeleton height={35} width={"60%"} className="mb-3" />
+
+            {/* Skeleton Text */}
+            <Skeleton count={4} height={20} width={"90%"} />
+          </>
+        ) : (
+          <div className="news-detail container-fluid ">
+          
+            <div className="img-side">
+              <img
+                src={`https://manager.hasdent.az${newsDetail.image}`}
 
               // alt={newsDetail.title}
-            />
-          </div>
-          {/* <div className="detail-side d-flex flex-column gap-3">
+              />
+            </div>
+            {/* <div className="detail-side d-flex flex-column gap-3">
             <span className="date">
               {newsDetail.createdAt?.slice(0, 10)}
               {new Date(newsDetail.createdAt).toLocaleDateString("az-AZ")}
@@ -94,20 +119,21 @@ export default function NewsDetail() {
             <h2 className="">{newsDetail.title.az}</h2>
             <p className="detail">{newsDetail.description.az}</p> 
           </div> */}
-          <div className="detail-side d-flex flex-column gap-3">
-            <span className="date">
-              {newsDetail.createdAt?.slice(0, 10)}
-              {/* {new Date(newsDetail.createdAt).toLocaleDateString("az-AZ")} */}
-            </span>
-            <h2 className="">
-              {" "}
-              {newsDetail?.title?.[currentLanguage] || newsDetail?.title?.az}
-            </h2>
-            <p className="detail">
-              {newsDetail?.description?.[currentLanguage] || newsDetail?.description?.az}
-            </p>
+            <div className="detail-side d-flex flex-column gap-3">
+              <span className="date">
+                {newsDetail.createdAt?.slice(0, 10)}
+                {/* {new Date(newsDetail.createdAt).toLocaleDateString("az-AZ")} */}
+              </span>
+              <h2 className="">
+                {" "}
+                {newsDetail?.title?.[currentLanguage] || newsDetail?.title?.az}
+              </h2>
+              <p className="detail">
+                {newsDetail?.description?.[currentLanguage] || newsDetail?.description?.az}
+              </p>
+            </div>
           </div>
-        </div>
+        )}
       </section>
     </>
   );

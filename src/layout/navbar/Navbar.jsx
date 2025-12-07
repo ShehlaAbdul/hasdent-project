@@ -247,27 +247,28 @@ const [categories, setCategories] = useState([])
           <div className="products-types  mt-3 position-absolute p-0 m-0">
             <div className="products-types-container mt-3 px-5">
               <ul className=" p-0 d-flex gap-2 row">
-                {/* {products.map(({ name, types }, index) => (
-                  <li key={index} className=" d-flex flex-column col">
-                    <h5>{name}</h5>
-                    <div className="d-flex flex-column gap-2">
-                      {types.map(({ type }, i) => (
-                        <p key={i} className=" p-0 m-0">
-                          {type}
-                        </p>
-                      ))}
-                    </div>
-                  </li>
-                ))} */}
                 {categories
                   ?.slice()
                   .reverse()
-                  .map((category, index) => (
-                    <li key={index} className=" d-flex flex-column col">
+                  .map((category) => (
+                    <li key={category.id} className=" d-flex flex-column col">
                       <h5>
                         {category.name?.[currentLanguage] || category.name?.az}
                       </h5>
-                      <Link to={createLanguageAwarePath(`products/${category?.id}`)}>
+                      <div className="subcategories d-flex flex-column gap-2">
+                        {category.subcategories?.map((sub) => (
+                          <Link
+                            key={sub.id}
+                            to={createLanguageAwarePath(`categories/${sub.id}`)}
+                            className="subcategory-link p-0 m-0"
+                          >
+                            {sub.name?.[currentLanguage] || sub.name?.az}
+                          </Link>
+                        ))}
+                      </div>
+                      {/* <Link
+                        to={createLanguageAwarePath(`products/${category?.id}`)}
+                      >
                         <div className="d-flex flex-column gap-2">
                           {category.subcategories?.map((sub) => (
                             <p className=" p-0 m-0" key={sub.id}>
@@ -275,7 +276,7 @@ const [categories, setCategories] = useState([])
                             </p>
                           ))}
                         </div>
-                      </Link>
+                      </Link> */}
                     </li>
                   ))}
               </ul>

@@ -14,6 +14,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import LanguageRedirect from "./components/languageRedirect/LanguageRedirect.jsx";
+import ProductDetail from "./pages/ProductDetail/ProductDetail.jsx";
 
 function App() {
   useEffect(() => {
@@ -35,9 +36,10 @@ function App() {
               <Route path="/services" element={<ServicesPage />} />
               <Route path="/partners" element={<Partners />} />
               <Route path="/contact-us" element={<ContactPage />} />
-              <Route path="/products/:id" element={<ProductsPage />} />
+              <Route path="/categories/:id" element={<ProductsPage />} />
               <Route path="/news/:id" element={<NewsDetail />} />
               <Route path="/news" element={<NewsPage />} />
+              <Route path="/product-detail" element={<ProductDetail />} />
               {/*   English */}
               <Route path="/en/" element={<Home />} />
               <Route path="/en/about" element={<About />} />
