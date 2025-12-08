@@ -92,7 +92,10 @@ export default function BestSeller() {
           <SectionHead title={t("header.products")} />
           <div className="d-flex justify-content-between">
             <h1 className="py-4 fs-2 ">{t("home.productSec.highsale")}</h1>
-            <Link to="/products" className="d-none d-md-block">
+            <Link
+              to={createLanguageAwarePath("/subcategory/2")}
+              className="d-none d-md-block"
+            >
               {" "}
               <ReadMore title={t("title.lookAll")} />
             </Link>

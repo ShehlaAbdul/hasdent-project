@@ -13,14 +13,23 @@ import {
   removeLanguageFromPath,
 } from "../../utils/languageUtils";
 
-export default function AboutSection() {
-      const { t, i18n } = useTranslation();
-      const { pathname } = useLocation();
-      // Get current language from URL BAXXXXXXXXXXXXXXXX BUNA
-      const currentLanguage = getCurrentLanguage(pathname);
-      const createLanguageAwarePath = (path) => {
-        return addLanguageToPath(path, currentLanguage);
-      };
+export default function AboutSection({ buttonType = "about", subcategoryId = null }) {
+  const { t, i18n } = useTranslation();
+  const { pathname } = useLocation();
+  // Get current language from URL BAXXXXXXXXXXXXXXXX BUNA
+  const currentLanguage = getCurrentLanguage(pathname);
+  const createLanguageAwarePath = (path) => {
+    return addLanguageToPath(path, currentLanguage);
+  };
+
+  const buttonLink =
+    buttonType === "about"
+      ? createLanguageAwarePath("/about")
+      : createLanguageAwarePath(`/subcategory/${subcategoryId}`);
+
+  const buttonText =
+    buttonType === "about" ? t("title.readMore") : t("btn.readMore"); 
+  
   return (
     <section id="about-sec">
       <div
@@ -28,7 +37,7 @@ export default function AboutSection() {
         data-aos-anchor-placement="top-center"
       >
         <div
-          className="layout-side col-12 col-lg-6 p-0 g-0 d-flex"
+          className="layout-side col-12 col-lg-6 p-0 g-0 d-flx`ex"
           data-aos="fade-right"
           // data-aos-anchor-placement="top-center"
         >
@@ -43,7 +52,9 @@ export default function AboutSection() {
           <h1 className="about-title">{t("home.aboutSection.title")}</h1>
           <p>{t("home.aboutSection.subtitle")}</p>
           <div>
-            <ReadMore title={t("title.readMore")} />
+            <Link to={buttonLink}>
+              <ReadMore title={buttonText} />
+            </Link>
           </div>
         </div>
       </div>

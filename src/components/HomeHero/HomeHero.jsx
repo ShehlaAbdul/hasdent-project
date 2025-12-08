@@ -23,13 +23,7 @@ export default function HomeHero() {
     return addLanguageToPath(path, currentLanguage);
   };
   
-    // useEffect(() => {
-    //   AOS.init({
-    //     duration: 2000, // animasiyanın müddəti (ms)
-    //     once: false, // element yalnız bir dəfə animasiya olunsun
-    //   });
-    // }, []);
-  
+
   return (
     <section id="home-hero">
       <div className="container-fluid row   g-0">
@@ -42,7 +36,9 @@ export default function HomeHero() {
             </h1>
             <p className="content">{t("home.heroSection.text")}</p>
             <div>
-              <ReadMore title={t("btn.readMore")}/>
+              <Link to={createLanguageAwarePath("/subcategory/2")}>
+                <ReadMore title={t("btn.readMore")} />
+              </Link>
             </div>
           </div>
         </div>

@@ -5,7 +5,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 
-export default function HeroSection({page}) {
+export default function HeroSection({page,category}) {
 
   return (
     <section id="hero-sec">

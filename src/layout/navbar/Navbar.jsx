@@ -21,7 +21,7 @@ export default function Navbar() {
   const [selectedLanguage, setSelectedLanguage] = useState("Az");
   // const [lang, setLang] = useState("az");
   const [isOpen, setIsOpen] = useState(false);
-const [categories, setCategories] = useState([])
+  const [categories, setCategories] = useState([]);
   const navigate = useNavigate();
   const languageDropdownRef = useRef(null);
   const { pathname } = useLocation();
@@ -184,35 +184,37 @@ const [categories, setCategories] = useState([])
     };
   }, []);
   const toggleSidebar = () => setIsOpen(!isOpen);
-   useEffect(() => {
-     // Update selected language display based on current URL language
-     setSelectedLanguage(
-       currentLanguage === "az"
-         ? "Az"
-         : currentLanguage === "en"
-         ? "En"
-         : currentLanguage === "ru"
-         ? "Ru"
-         : "Az"
-     );
-   }, [currentLanguage]);
+  useEffect(() => {
+    // Update selected language display based on current URL language
+    setSelectedLanguage(
+      currentLanguage === "az"
+        ? "Az"
+        : currentLanguage === "en"
+        ? "En"
+        : currentLanguage === "ru"
+        ? "Ru"
+        : "Az"
+    );
+  }, [currentLanguage]);
   // categories fetch
   useEffect(() => {
-    const getCategories  = async () => {
+    const getCategories = async () => {
       try {
         const res = await axios.get(
-          'https://manager.hasdent.az/api/allcategories'
-        )
+          "https://manager.hasdent.az/api/allcategories"
+        );
         setCategories(res?.data?.data);
         // console.log(getCategories());
       } catch (error) {
         console.error("Error fetching projects:", error);
       }
-    }
+    };
     getCategories();
-  
-  }, [])
-  
+  }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <>
       <nav className="custom-navbar navbar-expand-lg px-2  px-md-3 px-lg-1  d-flex align-items-center justify-content-between">
@@ -259,7 +261,9 @@ const [categories, setCategories] = useState([])
                         {category.subcategories?.map((sub) => (
                           <Link
                             key={sub.id}
-                            to={createLanguageAwarePath(`categories/${sub.id}`)}
+                            to={createLanguageAwarePath(
+                              `subcategory/${sub.id}`
+                            )}
                             className="subcategory-link p-0 m-0"
                           >
                             {sub.name?.[currentLanguage] || sub.name?.az}
@@ -298,9 +302,9 @@ const [categories, setCategories] = useState([])
         </div>
         {/* search */}
         <div className="d-flex justify-content-end align-items-center gap-0">
-          <div className="d-none d-lg-block">
+          {/* <div className="d-none d-lg-block">
             <IoSearchOutline size={20} className="text-dark" />
-          </div>
+          </div> */}
           {/* language dropdrown  */}
           <div className="language-dropdown">
             <button
@@ -345,10 +349,10 @@ const [categories, setCategories] = useState([])
           </div>
         </div>
         <div className="sidebar-body d-flex flex-column align-items-center  py-4 gap-3">
-          <div className=" border rounded-3 px-2   ">
+          {/* <div className=" border rounded-3 px-2   ">
             <IoSearchOutline size={18} className="text-dark" />
             <input type="text" name="" id="" />
-          </div>
+          </div> */}
 
           <div className="w-100 align-items-start  ">
             <Link to={createLanguageAwarePath("/")} className="nav-link">
@@ -365,7 +369,7 @@ const [categories, setCategories] = useState([])
               {t("header.services")}
             </Link>
             <Link
-              to={createLanguageAwarePath("/products")}
+              to={createLanguageAwarePath(`subcategory/4`)}
               className="nav-link"
             >
               {t("header.products")}

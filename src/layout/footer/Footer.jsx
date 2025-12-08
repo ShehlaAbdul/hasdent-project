@@ -76,11 +76,11 @@ export default function Footer() {
             <ul className="">
               <li className="">
                 <IoIosArrowForward />
-                <Link to={"about"}>{t("header.aboutUs")} </Link>
+                <Link to={"/about"}>{t("header.aboutUs")} </Link>
               </li>
               <li>
                 <IoIosArrowForward />
-                <Link to={"services"}>{t("header.services")} </Link>
+                <Link to={"/services"}>{t("header.services")} </Link>
               </li>
               <li>
                 <IoIosArrowForward />
@@ -88,7 +88,7 @@ export default function Footer() {
               </li>
               <li>
                 <IoIosArrowForward />
-                <Link to={"/"}>{t("header.products")} </Link>
+                <Link to={""}>{t("header.products")} </Link>
               </li>{" "}
               <li>
                 <IoIosArrowForward />

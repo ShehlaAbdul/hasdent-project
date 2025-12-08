@@ -1,50 +1,85 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Style.scss";
 import HeroSection from "../../components/HeroSection/HeroSection";
 import ReadMore from "../../components/readMore/ReadMore";
 import Img from "../../assets/images/HomeHero.webp";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import Skeleton from "react-loading-skeleton";
+import parse from "html-react-parser";
 
 function ProductDetail() {
+  const { id } = useParams();
+  const currentLanguage = "az";
+  const [detail, setDetail] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    axios
+      .get(`https://manager.hasdent.az/api/products/${id}`)
+      .then((res) => {
+        setDetail(res.data.data);
+      })
+      .catch((err) => console.log("Error fetching news detail:", err))
+      .finally(() => {
+        setTimeout(() => {
+          setLoading(false);
+        }, 1000);
+      });
+  }, [id]);
+
   return (
     <>
       <HeroSection page={"Məhsullar"} />
       <section id="product-detail">
-        <div className="product-detail">
-          <div
-            className="img-side"
-            //   data-aos="fade-right"
-          >
-            <img src={Img} alt="" />
-          </div>
-          <div className="text-side">
-            <div className="head">
-              <h3>text</h3>
-              <div className="d-none d-md-block">
+        {loading ? (
+          <>
+            <Skeleton
+              height={400}
+              width={"90%"}
+              className="mb-4 mx-auto"
+              style={{ borderRadius: "12px" }}
+            />
+            <Skeleton height={35} width={"60%"} className="mb-3" />
+            <Skeleton count={4} height={20} width={"90%"} />
+          </>
+        ) : (
+          <div className="product-detail">
+            <div className="img-side" data-aos="fade-up">
+              <img
+                src={`https://manager.hasdent.az${detail.image}`}
+                alt={detail?.title?.az}
+              />
+            </div>
+            <div className="text-side" data-aos="fade-up">
+              <div className="head">
+                <h3>{detail?.title?.[currentLanguage] || detail?.title?.az}</h3>
+                <div className="d-none d-md-block">
+                  <ReadMore
+                    title={"Katalogu endir"}
+                    onClick={() =>
+                      window.open(
+                        `https://manager.hasdent.az${detail.pdfFile}`,
+                        "_blank"
+                      )
+                    }
+                  />
+                </div>
+              </div>
+              <div className="content">
+                <p>
+                  {parse(
+                    detail?.description?.[currentLanguage] ||
+                      detail?.description?.az
+                  )}
+                </p>
+              </div>
+              <div className="d-block d-md-none">
                 <ReadMore title={"Katalogu endir"} />
               </div>
             </div>
-            <div className="content">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Deserunt, consectetur expedita numquam aspernatur perspiciatis
-                laboriosam esse minima amet reprehenderit! Nobis perspiciatis
-                minima, incidunt est aliquid magni ut ducimus odio veritatis
-                odit voluptas corrupti labore itaque? Nesciunt omnis corporis a
-                placeat, aliquam, consectetur blanditiis nam similique illum rem
-                natus eius mollitia minima quae consequatur inventore esse animi
-                tenetur rerum. At quo error explicabo, quis soluta obcaecati
-                voluptatem enim provident similique rerum eum consequatur
-                minima, numquam doloribus dolorum? Est dolorum molestiae dolorem
-                minus porro tempore quos ex hic adipisci autem in quis quae
-                distinctio, laboriosam explicabo nostrum placeat harum
-                exercitationem quam aliquid.
-              </p>
-            </div>
-            <div className="d-block d-md-none">
-              <ReadMore title={"Katalogu endir"} />
-            </div>
           </div>
-        </div>
+        )}
       </section>
     </>
   );

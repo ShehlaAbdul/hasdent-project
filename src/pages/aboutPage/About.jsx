@@ -11,6 +11,7 @@ import {
   addLanguageToPath,
   removeLanguageFromPath,
 } from "../../utils/languageUtils";
+import ReadMore from '../../components/readMore/ReadMore.jsx';
 
 
 export default function About() {
@@ -34,7 +35,7 @@ export default function About() {
   return (
     <div>
       <HeroSection page={t("header.aboutUs")} />
-      <AboutSection />
+      <AboutSection buttonType="products" subcategoryId={4} />
       <div className="vector4 position-absolute">
         <img src={Vector} alt="" />
       </div>

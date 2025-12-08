@@ -36,7 +36,7 @@ export default function WhyAreWe() {
           <p>{t("about.whyUs.text2")}</p>
           <div>
             {" "}
-            <ReadMore title={t("title.lookAll")} />
+            {/* <ReadMore title={t("title.lookAll")} /> */}
           </div>
         </div>
         <div className="img-side col-12 col-xl-7">
