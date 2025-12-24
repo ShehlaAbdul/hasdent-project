@@ -9,7 +9,7 @@ import { Link, useParams } from "react-router-dom";
 import parse from "html-react-parser";
 
 export default function ProductsSec() {
-const { subcategoryId } = useParams(); // URL: /products/:subcategoryId
+const { categoryId, subcategoryId } = useParams(); // URL: /products/:subcategoryId
 const [products, setProducts] = useState([]);
 const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -20,7 +20,7 @@ const [loading, setLoading] = useState(true);
     
       try {
         const { data } = await axios.get(
-          `https://manager.hasdent.az/api/products?subcategoryId=${subcategoryId}`
+          `https://manager.hasdent.az/api/products?subcategoryID=${subcategoryId}`
         );
         console.log(data); // ← bunı əlavə et
         setProducts(data?.data || data?.products || data || []);
@@ -66,17 +66,27 @@ const [loading, setLoading] = useState(true);
                     />
                   </div>
                   <div className="text-side">
-                    <h5 className="title">{item.title?.az}</h5>
-                    <p className="detail">{parse(item.description?.az)}</p>
+                    <h5 className="title ">
+                      {item.title?.az.length > 30
+                        ? item.title?.az.slice(0, 30) + "..."
+                        : item.title.az}
+                    </h5>
+                    <p className="detail">
+                      {item.description?.az
+                        ? parse(
+                            item.description.az.length > 0
+                              ? item.description.az.slice(0,20) + "..."
+                              : item.description.az
+                          )
+                        : ""}
+                    </p>
                   </div>
                 </div>
               </div>
             </Link>
           ))}
         </div>
-        <div className="products-sec">
-         
-        </div>
+        <div className="products-sec"></div>
       </section>
     </>
   );

@@ -22,6 +22,8 @@ export default function Navbar() {
   // const [lang, setLang] = useState("az");
   const [isOpen, setIsOpen] = useState(false);
   const [categories, setCategories] = useState([]);
+  const [isMobileProductsOpen, setIsMobileProductsOpen] = useState(false);
+  const [openCategoryId, setOpenCategoryId] = useState(null);
   const navigate = useNavigate();
   const languageDropdownRef = useRef(null);
   const { pathname } = useLocation();
@@ -39,110 +41,6 @@ export default function Navbar() {
     {
       value: "ru",
       label: "Ru",
-    },
-  ];
-  const products = [
-    {
-      name: "İmplantologiya",
-      types: [
-        {
-          type: "Diş İmplantları",
-        },
-        {
-          type: "Abatmentlər və Komponentlər",
-        },
-        {
-          type: "Cərrahi Alətlər",
-        },
-        {
-          type: "Biomateriallar",
-        },
-      ],
-    },
-    {
-      name: "Diş Laboratoriyası Materialları",
-      types: [
-        {
-          type: "Protez Materialları",
-        },
-        {
-          type: "Ölçü Materialları",
-        },
-        {
-          type: "3D Çap Materialları",
-        },
-        {
-          type: "Laboratoriya Cihazları",
-        },
-      ],
-    },
-    {
-      name: "İmplantologiya",
-      types: [
-        {
-          type: "Diş İmplantları",
-        },
-        {
-          type: "Abatmentlər və Komponentlər",
-        },
-        {
-          type: "Cərrahi Alətlər",
-        },
-        {
-          type: "Biomateriallar",
-        },
-      ],
-    },
-    {
-      name: "İmplantologiya",
-      types: [
-        {
-          type: "Diş İmplantları",
-        },
-        {
-          type: "Abatmentlər və Komponentlər",
-        },
-        {
-          type: "Cərrahi Alətlər",
-        },
-        {
-          type: "Biomateriallar",
-        },
-      ],
-    },
-    {
-      name: "İmplantologiya",
-      types: [
-        {
-          type: "Diş İmplantları",
-        },
-        {
-          type: "Abatmentlər və Komponentlər",
-        },
-        {
-          type: "Cərrahi Alətlər",
-        },
-        {
-          type: "Biomateriallar",
-        },
-      ],
-    },
-    {
-      name: "İmplantologiya",
-      types: [
-        {
-          type: "Diş İmplantları",
-        },
-        {
-          type: "Abatmentlər və Komponentlər",
-        },
-        {
-          type: "Cərrahi Alətlər",
-        },
-        {
-          type: "Biomateriallar",
-        },
-      ],
     },
   ];
   const createLanguageAwarePath = (path) => {
@@ -183,9 +81,23 @@ export default function Navbar() {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-  const toggleSidebar = () => setIsOpen(!isOpen);
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+    if (isOpen) {
+      setIsMobileProductsOpen(false);
+      setOpenCategoryId(null);
+    }
+  };
+
+  const toggleMobileProducts = () => {
+    setIsMobileProductsOpen(!isMobileProductsOpen);
+    setOpenCategoryId(null);
+  };
+
+  const toggleCategory = (categoryId) => {
+    setOpenCategoryId(openCategoryId === categoryId ? null : categoryId);
+  };
   useEffect(() => {
-    // Update selected language display based on current URL language
     setSelectedLanguage(
       currentLanguage === "az"
         ? "Az"
@@ -196,7 +108,6 @@ export default function Navbar() {
         : "Az"
     );
   }, [currentLanguage]);
-  // categories fetch
   useEffect(() => {
     const getCategories = async () => {
       try {
@@ -204,7 +115,6 @@ export default function Navbar() {
           "https://manager.hasdent.az/api/allcategories"
         );
         setCategories(res?.data?.data);
-        // console.log(getCategories());
       } catch (error) {
         console.error("Error fetching projects:", error);
       }
@@ -254,16 +164,24 @@ export default function Navbar() {
                   .reverse()
                   .map((category) => (
                     <li key={category.id} className=" d-flex flex-column col">
-                      <h5>
-                        {category.name?.[currentLanguage] || category.name?.az}
-                      </h5>
+                      <Link
+                        // to={createLanguageAwarePath(
+                        //   `/products/${category.id}`
+                        // )}
+                      >
+                        <h5>
+                          {category.name?.[currentLanguage] ||
+                            category.name?.az}
+                        </h5>
+                      </Link>
                       <div className="subcategories d-flex flex-column gap-2">
                         {category.subcategories?.map((sub) => (
                           <Link
                             key={sub.id}
                             to={createLanguageAwarePath(
-                              `subcategory/${sub.id}`
+                              `/products/${category.id}/${sub.id}`
                             )}
+                            // to={`/${currentLanguage}/subcategory/${sub.id}`}
                             className="subcategory-link p-0 m-0"
                           >
                             {sub.name?.[currentLanguage] || sub.name?.az}
@@ -368,12 +286,65 @@ export default function Navbar() {
             >
               {t("header.services")}
             </Link>
-            <Link
-              to={createLanguageAwarePath(`subcategory/4`)}
-              className="nav-link"
-            >
-              {t("header.products")}
-            </Link>
+
+            {/* Mobile Products Dropdown */}
+            <div className="mobile-products-section">
+              <div
+                className="nav-link mobile-products-trigger d-flex justify-content-between align-items-center"
+                onClick={toggleMobileProducts}
+              >
+                <span>{t("header.products")}</span>
+                <IoIosArrowDown
+                  className={`arrow-icon ${
+                    isMobileProductsOpen ? "rotated" : ""
+                  }`}
+                />
+              </div>
+
+              {isMobileProductsOpen && (
+                <div className="mobile-products-dropdown">
+                  {categories
+                    ?.slice()
+                    .reverse()
+                    .map((category) => (
+                      <div key={category.id} className="mobile-category">
+                        <div
+                          className="mobile-category-header"
+                          onClick={() => toggleCategory(category.id)}
+                        >
+                          <span className="category-name">
+                            {category.name?.[currentLanguage] ||
+                              category.name?.az}
+                          </span>
+                          <IoIosArrowDown
+                            className={`arrow-icon ${
+                              openCategoryId === category.id ? "rotated" : ""
+                            }`}
+                          />
+                        </div>
+
+                        {openCategoryId === category.id && (
+                          <div className="mobile-subcategories">
+                            {category.subcategories?.map((sub) => (
+                              <Link
+                                key={sub.id}
+                                to={createLanguageAwarePath(
+                                  `/products/${category.id}/${sub.id}`
+                                )}
+                                className="mobile-subcategory-link"
+                                onClick={toggleSidebar}
+                              >
+                                {sub.name?.[currentLanguage] || sub.name?.az}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                </div>
+              )}
+            </div>
+
             <Link to={createLanguageAwarePath("/news")} className="nav-link">
               {t("header.news")}
             </Link>

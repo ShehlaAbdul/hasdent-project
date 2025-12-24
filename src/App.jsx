@@ -1,6 +1,6 @@
 import MainLayout from "./layout/MainLayout";
 import Home from "./pages/homePage/Home";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import * as bootstrap from "bootstrap";
 import About from "./pages/aboutPage/About.jsx";
@@ -24,6 +24,7 @@ function App() {
     });
     AOS.refreshHard();
   }, []);
+  const { subcategoryId } = useParams();
 
   return (
     <>
@@ -36,13 +37,14 @@ function App() {
               <Route path="/services" element={<ServicesPage />} />
               <Route path="/partners" element={<Partners />} />
               <Route path="/contact-us" element={<ContactPage />} />
-              <Route
-                path="/subcategory/:subcategoryId"
-                element={<ProductsPage />}
-              />
               <Route path="/news/:id" element={<NewsDetail />} />
               <Route path="/news" element={<NewsPage />} />
+              <Route
+                path="/products/:categoryID/:subcategoryId"
+                element={<ProductsPage />}
+              />
               <Route path="/products/:id" element={<ProductDetail />} />
+
               {/*   English */}
               <Route path="/en/" element={<Home />} />
               <Route path="/en/about" element={<About />} />
@@ -50,9 +52,11 @@ function App() {
               <Route path="/en/partners" element={<Partners />} />
               <Route path="/en/contact-us" element={<ContactPage />} />
               <Route
-                path="en/subcategory/:subcategoryId"
+                path="en/products/:categoryID/:subcategoryId"
                 element={<ProductsPage />}
               />
+              <Route path="en/products/:id" element={<ProductDetail />} />
+
               <Route path="/en/news" element={<NewsPage />} />
               <Route path="/en/news/:id" element={<NewsDetail />} />
               {/*   Rus */}
@@ -62,9 +66,10 @@ function App() {
               <Route path="/ru/partners" element={<Partners />} />
               <Route path="/ru/contact-us" element={<ContactPage />} />
               <Route
-                path="ru/subcategory/:subcategoryId"
+                path="ru/products/:categoryID/:subcategoryId"
                 element={<ProductsPage />}
               />
+              <Route path="ru/products/:id" element={<ProductDetail />} />
               <Route path="/ru/news" element={<NewsPage />} />
               <Route path="/ru/news/:id" element={<NewsDetail />} />
               {/* <Route path="*" element={<NotFoundPage />} /> */}

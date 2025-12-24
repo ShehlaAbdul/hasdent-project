@@ -10,7 +10,8 @@ import parse from "html-react-parser";
 
 function ProductDetail() {
   const { id } = useParams();
-  const currentLanguage = "az";
+  // const currentLanguage = "az";
+  const [currentLanguage, setCurrentLanguage] = useState("az");
   const [detail, setDetail] = useState(null);
   const [loading, setLoading] = useState(true);
 
