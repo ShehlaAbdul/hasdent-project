@@ -14,7 +14,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import LanguageRedirect from "./components/languageRedirect/LanguageRedirect.jsx";
-import ProductDetail from "./pages/ProductDetail/ProductDetail.jsx";
+import ProductDetail from "./pages/productDetail/ProductDetail.jsx";
 
 function App() {
   useEffect(() => {
