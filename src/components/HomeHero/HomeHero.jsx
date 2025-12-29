@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import "./Style.scss";
 import ReadMore from '../readMore/ReadMore.jsx';
 import HomeHeroBg from '../../assets/images/HomeHero.webp';
@@ -22,7 +22,18 @@ export default function HomeHero() {
   const createLanguageAwarePath = (path) => {
     return addLanguageToPath(path, currentLanguage);
   };
-  
+  // /////////
+  const [randomProduct, setRandomProduct] = useState(null);
+
+  useEffect(() => {
+    fetch("https://manager.hasdent.az/api/products")
+      .then((res) => res.json())
+      .then((res) => {
+        const products = res.data;
+        setRandomProduct(products[Math.floor(Math.random() * products.length)]);
+      });
+  }, []);
+ 
 
   return (
     <section id="home-hero">
@@ -36,9 +47,15 @@ export default function HomeHero() {
             </h1>
             <p className="content">{t("home.heroSection.text")}</p>
             <div>
-              <Link to={createLanguageAwarePath("/subcategory/2")}>
-                <ReadMore title={t("btn.readMore")} />
-              </Link>
+              {randomProduct && (
+                <Link
+                  to={createLanguageAwarePath(
+                    `/products/${randomProduct.categoryID}/${randomProduct.subcategoryID}`
+                  )}
+                >
+                  <ReadMore title={t("btn.readMore")} />
+                </Link>
+              )}
             </div>
           </div>
         </div>

@@ -35,7 +35,7 @@ export default function About() {
   return (
     <div>
       <HeroSection page={t("header.aboutUs")} />
-      <AboutSection buttonType="products" subcategoryId={4} />
+      <AboutSection buttonType="products" subcategoryId={3} />
       <div className="vector4 position-absolute">
         <img src={Vector} alt="" />
       </div>

@@ -37,18 +37,7 @@ const [loading, setLoading] = useState(true);
   
   if (products.length === 0) return <p>Bu subcategory-də məhsul yoxdur.</p>;
   
-  // useEffect(() => {
-  //   (async () => {
-  //     try {
-  //       const { data } = await axios.get("/api/categories"); 
-  //       setCategories(data.data);
-  //     } catch (err) {
-  //       setError(err);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   })();
-  // }, []);
+
   
 
   return (

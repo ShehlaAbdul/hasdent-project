@@ -67,7 +67,7 @@ export default function Partners() {
 
     const sliderRef = useRef(null);
    useEffect(() => {
-     axios
+     axios  
        .get("https://manager.hasdent.az/api/partners") // <-- API URL
        .then((res) => {
          setPartners(res.data.data);
@@ -130,7 +130,10 @@ export default function Partners() {
           <div className="brands-list-mobile d-block d-md-none">
             {partners.map((brand) => (
               <div className="brand-item" key={brand.id}>
-                <img src={brand.img} alt={`brand-${brand.id}`} className="" />
+                <img
+                  src={`https://manager.hasdent.az${brand.logo}`}
+                  alt={`brand-${brand.id}`}
+                />
               </div>
             ))}
           </div>

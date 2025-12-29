@@ -25,7 +25,7 @@ export default function AboutSection({ buttonType = "about", subcategoryId = nul
   const buttonLink =
     buttonType === "about"
       ? createLanguageAwarePath("/about")
-      : createLanguageAwarePath(`/subcategory/${subcategoryId}`);
+      : createLanguageAwarePath(`/products/3/19`);
 
   const buttonText =
     buttonType === "about" ? t("title.readMore") : t("btn.readMore"); 

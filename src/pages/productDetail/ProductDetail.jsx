@@ -7,13 +7,28 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Skeleton from "react-loading-skeleton";
 import parse from "html-react-parser";
+import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import {
+  getCurrentLanguage,
+  addLanguageToPath,
+  removeLanguageFromPath,
+} from "../../utils/languageUtils";
+
 
 function ProductDetail() {
   const { id } = useParams();
   // const currentLanguage = "az";
-  const [currentLanguage, setCurrentLanguage] = useState("az");
+const { t, i18n } = useTranslation();
+  const { pathname } = useLocation();
+  // Get current language from URL BAXXXXXXXXXXXXXXXX BUNA
+  const currentLanguage = getCurrentLanguage(pathname);
+  const createLanguageAwarePath = (path) => {
+    return addLanguageToPath(path, currentLanguage);
+  };
   const [detail, setDetail] = useState(null);
   const [loading, setLoading] = useState(true);
+  
 
   useEffect(() => {
     axios
