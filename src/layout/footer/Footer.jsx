@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from "react";
 // import Logo from "../../assets/images/NavLogo.jpg"
 import Logo from "../../assets/images/NavLogo.webp";
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation } from "react-router-dom";
 // import SlSocialInstagram from "react-icons";
 import { TbBrandFacebook } from "react-icons/tb";
 import { IoIosArrowForward } from "react-icons/io";
@@ -11,32 +11,48 @@ import { FiPhoneCall } from "react-icons/fi";
 import { MdOutlineMail } from "react-icons/md";
 import "./Style.scss";
 import Vector from "../../assets/images/Vector1.webp";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 import {
   addLanguageToPath,
   getCurrentLanguage,
   removeLanguageFromPath,
 } from "../../utils/languageUtils";
-
+import axios from "axios";
 
 export default function Footer() {
-   const [width, setWidth] = useState(window.innerWidth);
-     const { t, i18n } = useTranslation();
-     const { pathname } = useLocation();
-     // Get current language from URL BAXXXXXXXXXXXXXXXX BUNA
-     const currentLanguage = getCurrentLanguage(pathname);
-     const createLanguageAwarePath = (path) => {
-       return addLanguageToPath(path, currentLanguage);
-     };
-  
-    useEffect(() => {
-      const handleResize = () => setWidth(window.innerWidth);
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }, []);
-  
-    const sliderRef = useRef(null);
-  
+  const [width, setWidth] = useState(window.innerWidth);
+  const { t, i18n } = useTranslation();
+  const { pathname } = useLocation();
+  const [categories, setCategories] = useState([]);
+  const [subcategories, setSubcategories] = useState();
+  // Get current language from URL BAXXXXXXXXXXXXXXXX BUNA
+  const currentLanguage = getCurrentLanguage(pathname);
+  const createLanguageAwarePath = (path) => {
+    return addLanguageToPath(path, currentLanguage);
+  };
+
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    const getCategories = async () => {
+      try {
+        const res = await axios.get(
+          "https://manager.hasdent.az/api/allcategories"
+        );
+        setCategories(res?.data?.data);
+      } catch (error) {
+        console.error("Error fetching projects:", error);
+      }
+    };
+    getCategories();
+  }, []);
+
+  const sliderRef = useRef(null);
+
   return (
     <footer>
       <div className="vector ">
@@ -102,35 +118,33 @@ export default function Footer() {
           </div>
           <div className="links col-12 col-md-6 col-lg-4">
             <h5>{t("footer.products")}</h5>
-            <ul>
-              <li>
-                <IoIosArrowForward />
-                <Link to={"about"}>{t("footer.categories.category1")} </Link>
-              </li>
-              <li>
-                <IoIosArrowForward />
-                <Link to={"services"}>{t("footer.categories.category2")} </Link>
-              </li>
-              <li>
-                <IoIosArrowForward />
-                <Link to={"about"}>{t("footer.categories.category3")} </Link>
-              </li>
-              <li>
-                <IoIosArrowForward />
-                <Link to={"about"}>{t("footer.categories.category4")} </Link>
-              </li>{" "}
-              <li>
-                <IoIosArrowForward />
-                <Link to={"about"}>{t("footer.categories.category5")} </Link>
-              </li>
-              <li>
-                <IoIosArrowForward />
-                <Link to={"contact-us"}>
-                  {t("footer.categories.category6")}{" "}
-                </Link>
-              </li>
-            </ul>
+            {categories?.length > 0 ? (
+              <ul className="p-0">
+                {categories
+                  .flatMap((category) => category.subcategories || []) // bütün subcategory-ləri bir array-a çevir
+                  .slice(0, 5) // yalnız ilk 4-ü göstər
+                  .map((sub) => (
+                    <li
+                      key={sub.id}
+                      className="d-flex align-items-center gap-2"
+                    >
+                      <IoIosArrowForward />
+                      <Link
+                        to={createLanguageAwarePath(
+                          `/products/${sub.categoryID}/${sub.id}`
+                        )}
+                        className="subcategory-link"
+                      >
+                        {sub.name?.[currentLanguage] || sub.name?.az}
+                      </Link>
+                    </li>
+                  ))}
+              </ul>
+            ) : (
+              <p>{t("loading")}</p>
+            )}
           </div>
+
           <div className="links-2 col-12 col-md-12 col-lg-4">
             <h5> {t("footer.contactUs")} </h5>
             <ul className="d-flex flex-column gap-3 ">
