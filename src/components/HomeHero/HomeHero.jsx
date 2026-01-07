@@ -49,11 +49,11 @@ export default function HomeHero() {
             <div>
               {randomProduct && (
                 <Link
-                  to={createLanguageAwarePath(
-                    `/products/${randomProduct.categoryID}/${randomProduct.subcategoryID}`
+                  to={createLanguageAwarePath("/about"
+                    // `/products/${randomProduct.categoryID}/${randomProduct.subcategoryID}`
                   )}
                 >
-                  <ReadMore title={t("btn.readMore")} />
+                  <ReadMore title={t("title.readMore")} />
                 </Link>
               )}
             </div>

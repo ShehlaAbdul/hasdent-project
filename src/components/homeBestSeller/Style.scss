@@ -8,7 +8,38 @@
             font-weight: 600;
         }
      
+       .slick-dots {
+    display: flex !important;
+    justify-content: center;
+    gap: 6px; 
+    margin-bottom: 20px;
+  }
 
+  .slick-dots li {
+    width:9px;
+    height:9px;
+    margin: 0; 
+  }
+
+  .slick-dots li button {
+    width:9px;    
+    height:9px;
+    padding: 0;
+  }
+
+  .slick-dots li button:before {
+    content: "";
+    width:9px;
+    height:9px;
+    border-radius: 50%;
+    background-color: #ccc;
+    opacity: 1;
+  }
+
+  .slick-dots li.slick-active button:before {
+    background-color: #744394; // aktiv dot
+    transform: scale(1.2);  // 🔴 bir az böyük
+  }
         .bestseller-card{
             box-shadow: #0000003d 0px 3px 8px;
             margin: 40px 0;

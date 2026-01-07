@@ -56,11 +56,14 @@ export default function BestSeller() {
 
   const settings = {
     dots: true,
-    arrows: true, // 🔴 Arrowlar aktiv
-    infinite: false,
-    speed: 500,
+    infinite: true, // 🔴 sona çatanda geriyə qayıdır
+    speed: 500, // animasiya
+    autoplay: true,
+    autoplaySpeed: 2000, // 1 saniyə dayanır
     slidesToShow: width <= 576 ? 1 : width <= 768 ? 2 : width <= 992 ? 3 : 4,
-    slidesToScroll: 1,
+    slidesToScroll: 2, // 🔴 hər dəfə 1 kart
+    pauseOnHover: true,
+    cssEase: "ease-in-out",
   };
 
   return (
