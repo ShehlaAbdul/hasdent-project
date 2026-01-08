@@ -2,7 +2,7 @@ import React from "react";
 
 export default function ReadMore({title}) {
   return (
-    <button class="primary-btn" >
+    <button className="primary-btn" >
       <span>{title}</span>
     </button>
   );

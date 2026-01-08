@@ -41,7 +41,7 @@ export default function BestSeller() {
 
         const list = data?.data || [];
 
-        setProducts(list.slice(0, 5)); // 🔴 YALNIZ 5 MƏHSUL
+        setProducts(list.slice(0, 5)); 
 
         if (list.length > 0) {
           setRandomProduct(list[Math.floor(Math.random() * list.length)]);
@@ -56,12 +56,12 @@ export default function BestSeller() {
 
   const settings = {
     dots: true,
-    infinite: true, // 🔴 sona çatanda geriyə qayıdır
-    speed: 500, // animasiya
+    infinite: true, 
+    speed: 500, 
     autoplay: true,
-    autoplaySpeed: 2000, // 1 saniyə dayanır
+    autoplaySpeed: 2000, 
     slidesToShow: width <= 576 ? 1 : width <= 768 ? 2 : width <= 992 ? 3 : 4,
-    slidesToScroll: 2, // 🔴 hər dəfə 1 kart
+    slidesToScroll: 2,
     pauseOnHover: true,
     cssEase: "ease-in-out",
   };
@@ -102,7 +102,7 @@ export default function BestSeller() {
                         : item.title?.az}
                     </h5>
 
-                    <p>
+                    <div>
                       {item.description?.az
                         ? parse(
                             item.description.az.length > 10
@@ -110,7 +110,7 @@ export default function BestSeller() {
                               : item.description.az
                           )
                         : ""}
-                    </p>
+                    </div>
                   </div>
                 </div>
               </div>
